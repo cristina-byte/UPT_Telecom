@@ -1,0 +1,250 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.web_site {
+  display: flex;
+}
+
+.bcolor {
+  background: #cb728d;
+}
+
+.menu_section {
+  padding-right: 19px;
+  padding-top: 124px;
+  position: fixed;
+  width: 220px;
+  height: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.main_content_section {
+  margin-top: 0px;
+  width: 85%;
+  padding-top: 46px;
+  background: #f9f9f9;
+  margin-left: 217px;
+  padding-left: 25px;
+  padding-right: 71px;
+  padding-bottom: 400px;
+}
+
+.head {
+  padding-top: 72px;
+}
+
+.logo {
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.menu_item {
+  padding-left: 23px;
+  list-style: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+.menu_item a {
+  color: white;
+  font-size: 13px;
+  text-decoration: none;
+  margin-left: 9px;
+}
+.menu_item:hover {
+  background: #d38fa3;
+}
+
+#burger_menu {
+  color: black;
+  cursor: pointer;
+}
+.header_page {
+  margin-left: 32px;
+  font-size: 18px;
+  color: #282828;
+  font-weight: bolder;
+}
+.number {
+  margin-left: 32px;
+  font-size: 13px;
+  color: #cb728d;
+  margin-bottom: 0px;
+}
+
+.search {
+  padding-left: 19px;
+  border-radius: 50px;
+  border: 1px solid #bdbdbd;
+  width: 100%;
+  height: 32px;
+  color: #767676;
+  font-size: 12px;
+}
+
+.a,
+.b {
+  border-radius: 5px;
+  font-size: 12px;
+  border: none;
+  padding: 7px 19px;
+}
+
+.bordcolor {
+  border: 1px solid #cb728d;
+}
+
+.a {
+  color: white;
+}
+
+.b {
+  color: #cb728d;
+  background: white;
+  margin-right: 15px;
+}
+
+tr {
+  border-bottom: 0.5px solid #e3dede;
+}
+
+.h {
+  color: #cb728d;
+}
+
+td {
+  font-size: 14px;
+}
+
+/*Adaugare produs formular*/
+#adaugare_produs {
+  margin-left: 10px;
+  margin-top: 38px;
+  background: white;
+  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.03);
+  border-radius: 6px;
+  padding: 65px 40px;
+  width: 80%;
+}
+label {
+  color: #676a6c;
+  font-size: 14px;
+  display: block;
+  margin-top: 35px;
+}
+
+.input {
+  margin-top: 20px;
+  border: none;
+  border-bottom: 1px solid rgba(203, 114, 141, 0.5);
+  width: 70%;
+}
+
+.header_form {
+  color: black;
+  font-size: 17px;
+}
+
+.add,
+.cancel {
+  border-radius: 3px;
+
+  font-size: 14px;
+  padding: 10px 22px;
+}
+
+.add {
+  border: none;
+  color: white;
+  margin-right: 17px;
+}
+
+.cancel {
+  color: #cb728d;
+  background: white;
+}
+
+.imagine_produs {
+  width: 95px;
+  padding-top: 22px;
+  padding-bottom: 40px;
+}
+
+/*cauta client*/
+
+.result {
+  margin-top: 35px;
+  color: #676a6c;
+  font-size: 15px;
+}
+
+/*Informatii client*/
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(203, 114, 141, 0.5);
+}
+
+.info {
+  color: #676a6c;
+  font-size: 14px;
+  margin-top: 27px;
+  margin-bottom: 6px;
+}
+
+.button {
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.view {
+  color: white;
+
+  padding: 8px 29px;
+  font-size: 12px;
+}
+
+.button:hover {
+  color: #f2ecec;
+}
+
+.open,
+.delete {
+  padding: 7px 25px;
+  font-size: 11px;
+  color: white;
+}
+
+.delete {
+  background: #a9a9a9;
+}
+
+.img {
+  width: 80px;
+}
+
+.choose {
+  padding: 8px 34px;
+  color: white;
+}
+
+.menu2_item {
+  margin-bottom: 7px;
+  list-style: none;
+}
+.menu2_item a {
+  text-decoration: none;
+  color: #f1eded;
+  font-size: 12px;
+}
+
+#second_menu {
+  margin-top: 6px;
+  display: none;
+}
