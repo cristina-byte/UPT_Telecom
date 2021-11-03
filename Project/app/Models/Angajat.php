@@ -9,5 +9,6 @@ class Angajat extends Model
 {
     use HasFactory;
     public $table="angajati";
+    protected $guarded = [];
 
 }

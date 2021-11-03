@@ -9,4 +9,5 @@ class Tichet extends Model
 {
     use HasFactory;
     public $table="tichete";
+    protected $guarded = [];
 }

@@ -9,4 +9,5 @@ class Factura extends Model
 {
     use HasFactory;
     public $table="facturi";
+    protected $guarded = [];
 }

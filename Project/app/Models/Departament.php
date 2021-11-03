@@ -9,4 +9,5 @@ class Departament extends Model
 {
     use HasFactory;
     public $table="departamente";
+    protected $guarded = [];
 }

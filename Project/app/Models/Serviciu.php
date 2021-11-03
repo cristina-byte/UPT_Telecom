@@ -9,4 +9,5 @@ class Serviciu extends Model
 {
     use HasFactory;
     public $table="servicii";
+    protected $guarded = [];
 }
