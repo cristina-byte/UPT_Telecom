@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAngajatiTable extends Migration
+class CreateClientiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,19 @@ class CreateAngajatiTable extends Migration
      */
     public function up()
     {
-        Schema::create('angajati', function (Blueprint $table) {
-            $table->id_angajat();
+        Schema::create('clienti', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('nume',20);
             $table->string('prenume',20);
-            $table->id_departament();
-            $table->string('adresa',40);
-            $table->telefon();
             $table->string('email',20);
-            $table->salariu();
-            $table->string('functie',20);
+            $table->string('adresa',40);
+            $table->string('telefon');
+            $table->unsignedBigInteger('id_serviciu');
+            $table->foreign('id_serviciu')->references('id')->on('servicii');
+            $table->date('start_date');
+            $table->date('durata_min');
             $table->timestamps();
+
         });
     }
 
@@ -34,6 +36,6 @@ class CreateAngajatiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('angajati');
+        Schema::dropIfExists('clienti');
     }
 }

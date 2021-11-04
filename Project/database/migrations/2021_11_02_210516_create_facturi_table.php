@@ -14,11 +14,13 @@ class CreateFacturiTable extends Migration
     public function up()
     {
         Schema::create('facturi', function (Blueprint $table) {
-            $table->id_factura();
-            $table->id_client();
-            $table->date('perioada-?');
-            $table->id_serviciu();
-            $table->pret();
+            $table->id();
+            $table->unsignedBigInteger('id_client');
+            $table->foreign('id_client')->references('id')->on('clienti');
+            $table->date('perioada');
+            $table->unsignedBigInteger('id_serviciu');
+            $table->foreign('id_serviciu')->references('id')->on('servicii');
+            $table->integer('pret');
             $table->enum('status',['done','in progress', 'new']);
             $table->timestamps();
         });
