@@ -13,28 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
+Route::get('/', function () {});
 
- 
-Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('home');
+//Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('home');
 
-Route::get('/dashboard',[App\Http\Controllers\MainController::class,'index'])->name('dashboard');
-Route::get('/client', [App\Http\Controllers\ClientController::class, 'index'])->name('client');
-Route::get('/angajat', [App\Http\Controllers\AngajatController::class, 'index'])->name('angajat');
-Route::get('/departament', [App\Http\Controllers\DepartamentController::class, 'index'])->name('departament');
-Route::get('/factura', [App\Http\Controllers\FacturaController::class, 'index'])->name('factura');
-Route::get('/serviciu', [App\Http\Controllers\ServiciuController::class, 'index'])->name('serviciu');
-Route::get('/tichet', [App\Http\Controllers\TichetController::class, 'index'])->name('tichet');
- 
+//aratam pe toate aici
+Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('dashboard');
+Route::get('/clienti', [App\Http\Controllers\ClientController::class, 'index'])->name('client');
+Route::get('/angajati', [App\Http\Controllers\AngajatController::class, 'index'])->name('angajat');
+Route::get('/departamente', [App\Http\Controllers\DepartamentController::class, 'index'])->name('departament');
+Route::get('/facturi', [App\Http\Controllers\FacturaController::class, 'index'])->name('factura');
+Route::get('/servicii', [App\Http\Controllers\ServiciuController::class, 'index'])->name('serviciu');
+Route::get('/tichete', [App\Http\Controllers\TichetController::class, 'index'])->name('tichet');
 
-//clienti  
+//clienti
 Route::get('/add_client',[App\Http\Controllers\ClientController::class,'create'])->name('add_client');
 Route::post('/store_client',[App\Http\Controllers\ClientController::class,'store'])->name('store.client');
 //Route::get('/client/{id}',[App\Http\Controllers\ClientController::class,'show'])->name('client.show');
 Route::post('/client/{id}/update',[App\Http\Controllers\ClientController::class,'update'])->name('client.update');
 Route::get('/client/{id}/edit',[App\Http\Controllers\ClientController::class,'edit'])->name('client.edit');
 Route::get('/delete_client/{id}',[App\Http\Controllers\ClientController::class,'destroy'])->name('delete.client');
-
 
 //angajat
 Route::get('/add_angajat',[App\Http\Controllers\AngajatController::class,'create'])->name('add_angajat');
@@ -67,7 +65,7 @@ Route::get('/add_factura',[App\Http\Controllers\FacturaController::class,'create
 Route::post('/store_factura',[App\Http\Controllers\FacturaController::class,'store'])->name('store.factura');
 Route::get('/factura/{id}/edit',[App\Http\Controllers\FacturaController::class,'edit'])->name('edit_factura');
 Route::post('/factura/{id}/update',[App\Http\Controllers\FacturaController::class,'update'])->name('update_factura');
-  
+
 
 //departament
 Route::get('/add_departament',[App\Http\Controllers\DepartamentController::class,'create'])->name('departament');
