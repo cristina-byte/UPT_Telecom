@@ -13,7 +13,7 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        //
+        return view('facturi');
     }
 
     /**
@@ -23,7 +23,7 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        //
+        return view('adaugare_factura');
     }
 
     /**

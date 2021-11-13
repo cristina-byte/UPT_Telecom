@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {});
+
 
 //Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('home');
 
 //aratam pe toate aici
-Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('dashboard');
+Route::get('/',[App\Http\Controllers\MainController::class,'getDashboard'])->name('dashboard');
+
+
+
+
 Route::get('/clienti', [App\Http\Controllers\ClientController::class, 'index'])->name('client');
 Route::get('/angajati', [App\Http\Controllers\AngajatController::class, 'index'])->name('angajat');
-Route::get('/departamente', [App\Http\Controllers\DepartamentController::class, 'index'])->name('departament');
+//Route::get('/departamente', [App\Http\Controllers\DepartamentController::class, 'index'])->name('departament');
 Route::get('/facturi', [App\Http\Controllers\FacturaController::class, 'index'])->name('factura');
 Route::get('/servicii', [App\Http\Controllers\ServiciuController::class, 'index'])->name('serviciu');
 Route::get('/tichete', [App\Http\Controllers\TichetController::class, 'index'])->name('tichet');
@@ -44,7 +48,7 @@ Route::get('/delete_angajat/{id}',[App\Http\Controllers\AngajatController::class
 
 
 //tichete
-Route::get('/add_tichet',[App\Http\Controllers\TichetController::class,'create'])->name('tichete');
+Route::get('/add_tichet',[App\Http\Controllers\TichetController::class,'create'])->name('add_tichet');
 Route::post('/store_tichete',[App\Http\Controllers\TichetController::class,'store'])->name('store.tichete');
 Route::get('/tichet/{id}/edit',[App\Http\Controllers\TichetController::class,'edit'])->name('edit_tichete');
 Route::post('/tichet/{id}/update',[App\Http\Controllers\TichetController::class,'update'])->name('update_tichete');
@@ -53,7 +57,7 @@ Route::post('/tichet/{id}/update',[App\Http\Controllers\TichetController::class,
 
 
 //servicii
-Route::get('/add_serviciu',[App\Http\Controllers\ServiciuController::class,'create'])->name('serviciu');
+Route::get('/add_serviciu',[App\Http\Controllers\ServiciuController::class,'create'])->name('add_serviciu');
 Route::post('/store_serviciu',[App\Http\Controllers\ServiciuController::class,'store'])->name('store.serviciu');
 Route::get('/serviciu/{id}/edit',[App\Http\Controllers\ServiciuController::class,'edit'])->name('edit_serviciu');
 Route::post('/serviciu/{id}/update',[App\Http\Controllers\ServiciuController::class,'update'])->name('update_serviciu');
@@ -61,7 +65,7 @@ Route::get('/delete_serviciu/{id}',[App\Http\Controllers\ServiciuController::cla
 
 
 //factura
-Route::get('/add_factura',[App\Http\Controllers\FacturaController::class,'create'])->name('factura');
+Route::get('/add_factura',[App\Http\Controllers\FacturaController::class,'create'])->name('add_factura');
 Route::post('/store_factura',[App\Http\Controllers\FacturaController::class,'store'])->name('store.factura');
 Route::get('/factura/{id}/edit',[App\Http\Controllers\FacturaController::class,'edit'])->name('edit_factura');
 Route::post('/factura/{id}/update',[App\Http\Controllers\FacturaController::class,'update'])->name('update_factura');

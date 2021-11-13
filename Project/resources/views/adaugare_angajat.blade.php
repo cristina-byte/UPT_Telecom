@@ -6,7 +6,7 @@
 	    <div class="main_content_section">
 	    		<div class="row head ">
 	    			<div class="col-4 ">
-	    				<h2 class="header_page">Tichet</h2>
+	    				<h2 class="header_page">Angajat</h2>
 	    			</div>
 	    		</div>
 

@@ -13,7 +13,7 @@ class TichetController extends Controller
      */
     public function index()
     {
-        //
+        return view('tichete');
     }
 
     /**
@@ -23,7 +23,7 @@ class TichetController extends Controller
      */
     public function create()
     {
-        //
+        return view('adaugare_tichet');
     }
 
     /**

@@ -13,7 +13,8 @@ class AngajatController extends Controller
      */
     public function index()
     {
-        //
+        
+        return view('angajati');
     }
 
     /**
@@ -22,8 +23,8 @@ class AngajatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {    
+       return view('adaugare_angajat');
     }
 
     /**

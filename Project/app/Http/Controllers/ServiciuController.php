@@ -13,7 +13,7 @@ class ServiciuController extends Controller
      */
     public function index()
     {
-        //
+        return view('servicii');
     }
 
     /**

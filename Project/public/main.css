@@ -1,6 +1,7 @@
-
 body {
     font-family: "Poppins", sans-serif;
+    background: blue;
+   
 }
 
 .web_site {
@@ -23,10 +24,9 @@ body {
 
 .main_content_section {
     margin-top: 0px;
-    width: 85%;
+    width:100%;
     padding-top: 46px;
     background: #f9f9f9;
-    margin-left: 217px;
     padding-left: 25px;
     padding-right: 71px;
     padding-bottom: 400px;
