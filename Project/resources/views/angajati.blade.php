@@ -5,11 +5,11 @@
 	<section class="web_site">
 	    <div class="main_content_section">
 	    		<div class="row head ">
-	    			<div class="col-4 ">
+	    			<div class="col-3 pt-2">
 	    				<h2 class="header_page">Angajati</h2>
 
 	    			</div>
-	    			<div class="col-3 pt-2">
+	    			<div class="col-4 pt-2">
 	    				<input type="text" class="search" placeholder="Cauta...">
 	    			</div>
 

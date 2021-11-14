@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Proiect BD</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -20,32 +20,27 @@
 </head>
 <body class="antialiased">
 
-<div class="container">
     <nav class="navbar navbar-default">
-        <h3 class="logo">LOGO</h3>
-        <ul class="menu">
-            <li class="menu_item">
-                <a href="{{route('angajat')}}">Angajati</a></li>
-            <li class="menu_item">
-                <a href="{{route('client')}}">Clienti</a></li>
-                <li class="menu_item">
-                <a href="{{route('tichet')}}">Tichete</a></li>
-                <li class="menu_item">
-                <a href="{{route('serviciu')}}">Servicii</a></li>
-                <li class="menu_item">
-                <a href="{{route('factura')}}">Facturi</a></li>
+        <a href="/" class="navbar-brand">uptTelecom</a>
+        <ul class="menu navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('angajat')}}">Angajati</a></li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('client')}}">Clienti</a></li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('tichet')}}">Tichete</a></li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('serviciu')}}">Servicii</a></li>
+            <li class="nav-item">
+            <a class="nav-link" href="{{route('factura')}}">Facturi</a></li>
         </ul>
     </nav>
-</div>
 
 <section>
-    @yield('content')   
-</section>>
-
-
-
-
-
-
+    @yield('content')
+</section>
+<footer class="blockquote-footer">
+    <p>Creat de Siscanu Cristina, Gheorghiu Nadejda si Bolea Andreea</p>
+</footer>
 </body>
 </html>

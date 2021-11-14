@@ -5,30 +5,39 @@
 	<section class="web_site">
 	    <div class="main_content_section">
 	    		<div class="row head ">
-	    			<div class="col-4 ">
-	    				<h2 class="header_page">Factura</h2>
+	    			<div class="col-5">
+	    				<h2 class="header_page">Adauga o noua factura</h2>
 	    			</div>
 	    		</div>
 
 				<form method="post">
 					<div class="form-section">
-						<p>Responsabil</p>
-						<input type="text" value="responsabil"><br>
+						<label>ID Client</label>
+						<input class="form-control" type="text"><br>
 					</div>
 					<div class="form-section">
-						<p>Client ID</p>
-						<input type="text" value="client"><br>
+						<label>ID Serviciu</label>
+						<input class="form-control" type="text"><br>
 					</div>
 					<div class="form-section">
-						<p>Descriere</p>
-                        <textarea type="text" value="descriere"></textarea>
+						<label>Pret</label>
+                        <textarea class="form-control" type="text"></textarea>
 					</div>
 					<div class="form-section">
-						<p>Urgenta</p>
-						<input type="email" value="urgenta"><br>
+						<label>Data Scadenta</label>
+						<input class="form-control" type="email"><br>
 					</div>
-					<input type="submit" value="Trimite">
-					<input type="reset" value="Anulare">
+                    <div class="form-section">
+						<label>Status</label>
+                        <select class="form-control" >
+                            <option>Platit</option>
+                            <option>Expirat</option>
+                            <option>Scadent</option>
+                        </select>					</div>
+                    <div class="btn-group">
+                        <input class="b bordcolor" type="reset" value="Anulare">
+                        <input class="a bcolor" type="submit" value="Trimite">
+                    </div>
                 </form>
 	    </div>
 	</section>

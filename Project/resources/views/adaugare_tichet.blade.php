@@ -6,29 +6,35 @@
 	    <div class="main_content_section">
 	    		<div class="row head ">
 	    			<div class="col-4 ">
-	    				<h2 class="header_page">Tichet</h2>
+	    				<h2 class="header_page">Adauga un nou tichet</h2>
 	    			</div>
 	    		</div>
 
 				<form method="post">
 					<div class="form-section">
-						<p>Responsabil</p>
-						<input type="text" value="responsabil"><br>
+						<label>Responsabil</label>
+						<input  class="form-control" type="text"><br>
 					</div>
 					<div class="form-section">
-						<p>Client ID</p>
-						<input type="text" value="client"><br>
+						<label>Client ID</label>
+						<input class="form-control" type="text"><br>
 					</div>
 					<div class="form-section">
-						<p>Descriere</p>
-                        <textarea type="text" value="descriere"></textarea>
+						<label>Descriere</label>
+                        <textarea class="form-control" type="text"></textarea>
 					</div>
 					<div class="form-section">
-						<p>Urgenta</p>
-						<input type="email" value="urgenta"><br>
+						<label>Urgenta</label>
+                        <select class="form-control" >
+                            <option>High</option>
+                            <option>Medium</option>
+                            <option>Low</option>
+                        </select>
 					</div>
-					<input type="submit" value="Trimite">
-					<input type="reset" value="Anulare">
+                    <div class="btn-group">
+                        <input class="b bordcolor" type="reset" value="Anulare">
+                        <input class="a bcolor" type="submit" value="Trimite">
+                    </div>
                 </form>
 	    </div>
 	</section>
