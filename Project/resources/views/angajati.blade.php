@@ -26,62 +26,36 @@
 	    				<td class="h">Nume</td>
 	    				<td class="h">Prenume</td>
 	    				<td class="h">Departament</td>
-	    				<td class="h">Email</td>
+	    				<td class="h">Adresa</td>
 	    				<td class="h">Telefon</td>
+	    				<td class="h">Email</td>
 	    				<td class="h">Salariu</td>
 	    				<td class="h">Functie</td>
-	    				<td class="h"></td>
-	    				<td class="h"></td>
+	    				<td colspan="2" class="h">Actiuni</td>
+	    				
+
 
 	    			</tr>
+	    			
+
+	    			@foreach($angajati as $angajat)
 	    			<tr>
-	    				<td>00001</td>
-	    				<td>Ion</td>
-	    				<td>Popescu</td>
-	    				<td>Clientela</td>
-	    				<td>ion.popescu@mail.com</td>
-	    				<td>078945613</td>
-	    				<td>10000</td>
-	    				<td>Inginer</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
+	    				<td class="h">{{$angajat->id}}</td>
+	    				<td class="h">{{$angajat->nume}}</td>
+	    				<td class="h">{{$angajat->prenume}}</td>
+	    				<td class="h">{{$angajat->departament}}</td>
+	    				<td class="h">{{$angajat->adresa}}</td>
+	    				<td class="h">{{$angajat->telefon}}</td>
+	    				<td class="h">{{$angajat->email}}</td>
+	    				<td class="h">{{$angajat->salariu}}</td>
+	    				<td class="h">{{$angajat->functie}}</td>
+	    			    <td class="h"> <a href="{{route('edit_angajat',['id'=>$angajat->id])}}">Edit</a></td>
+	    			    <td class="h"> <a href="{{route('delete.angajat',['id'=>$angajat->id])}}">Delete</a></td>
 	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Ion</td>
-                        <td>Popescu</td>
-                        <td>Clientela</td>
-                        <td>ion.popescu@mail.com</td>
-                        <td>078945613</td>
-                        <td>10000</td>
-                        <td>Inginer</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Ion</td>
-                        <td>Popescu</td>
-                        <td>Clientela</td>
-                        <td>ion.popescu@mail.com</td>
-                        <td>078945613</td>
-                        <td>10000</td>
-                        <td>Inginer</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Ion</td>
-                        <td>Popescu</td>
-                        <td>Clientela</td>
-                        <td>ion.popescu@mail.com</td>
-                        <td>078945613</td>
-                        <td>10000</td>
-                        <td>Inginer</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
+	    		     @endforeach
+
+
+
 	    		</table>
 	    	</div>
 	    </div>

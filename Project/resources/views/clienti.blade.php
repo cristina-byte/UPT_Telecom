@@ -28,50 +28,32 @@
 	    				<td class="h">Pachet</td>
 	    				<td class="h">Telefon</td>
 	    				<td class="h">Data inscriere</td>
-	    				<td class="h"></td>
-	    				<td class="h"></td>
+	    				<td colspan="2" class="h"></td>
+	    			</tr>
+
+
+	    			@foreach($clienti as $client)
+	    			<tr>
+	    				<td class="h">{{$client->id}}</td>
+	    				<td class="h">{{$client->nume}}</td>
+	    				<td class="h">{{$client->prenume}}</td>
+	    				<td class="h">{{$client->id_serviciu}}</td>
+	    				<td class="h">{{$client->telefon}}</td>
+	    				<td class="h">{{$client->start_date}}</td>
+	    				<td class="h"> <a href="{{route('client.edit',['id'=>$client->id])}}">Edit</a></td>
+	    			    <td class="h"> <a href="{{route('delete.client',['id'=>$client->id])}}">Delete</a></td>
+	    				
+
+
+
 
 	    			</tr>
-	    			<tr>
-	    				<td>00001</td>
-	    				<td>Ion</td>
-	    				<td>Popescu</td>
-	    				<td>Internet Mare</td>
-	    				<td>078945613</td>
-	    				<td>01/12/32</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-	    				<td>00001</td>
-	    				<td>Ion</td>
-	    				<td>Popescu</td>
-	    				<td>Internet Mare</td>
-	    				<td>078945613</td>
-	    				<td>01/12/32</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-	    				<td>00001</td>
-	    				<td>Ion</td>
-	    				<td>Popescu</td>
-	    				<td>Internet Mare</td>
-	    				<td>078945613</td>
-	    				<td>01/12/32</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-	    				<td>00001</td>
-	    				<td>Ion</td>
-	    				<td>Popescu</td>
-	    				<td>Internet Mare</td>
-	    				<td>078945613</td>
-	    				<td>01/12/32</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
-	    			</tr>
+
+
+
+
+	    			@endforeach
+	    			
 	    		</table>
 	    	</div>
 	    </div>

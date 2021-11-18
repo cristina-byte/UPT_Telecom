@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientController extends Controller
 {
@@ -13,7 +14,10 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('clienti');
+
+
+        $clienti=Client::All();
+        return view('clienti',['clienti'=>$clienti]);
     }
 
     /**
@@ -34,7 +38,22 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client=new Client;
+
+
+        $client->nume=$request->nume;
+         $client->prenume=$request->prenume;
+          $client->id_serviciu=$request->pachet;
+           $client->email=$request->email;
+            $client->adresa=$request->adresa;
+             $client->telefon=$request->telefon;
+              $client->start_date=$request->start_date;
+               $client->durata_min=$request->durata;
+
+               $client->save();
+
+            return redirect()->route('clienti');
+
     }
 
     /**
@@ -68,7 +87,22 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $client=Client::findOrFail($id);
+     
+          $client->nume=$request->nume;
+         $client->prenume=$request->prenume;
+          $client->id_serviciu=$request->pachet;
+           $client->email=$request->email;
+            $client->adresa=$request->adresa;
+             $client->telefon=$request->telefon;
+              $client->start_date=$request->start_date;
+               $client->durata_min=$request->durata;
+
+               $client->save();
+
+            return redirect()->route('clienti');
+
     }
 
     /**
@@ -79,6 +113,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Client::destroy($id);
+        return redirect()->route('clienti');
+
+
     }
 }

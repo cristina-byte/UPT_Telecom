@@ -33,7 +33,6 @@ Route::get('/tichete', [App\Http\Controllers\TichetController::class, 'index'])-
 //clienti
 Route::get('/add_client',[App\Http\Controllers\ClientController::class,'create'])->name('add_client');
 Route::post('/store_client',[App\Http\Controllers\ClientController::class,'store'])->name('store.client');
-//Route::get('/client/{id}',[App\Http\Controllers\ClientController::class,'show'])->name('client.show');
 Route::post('/client/{id}/update',[App\Http\Controllers\ClientController::class,'update'])->name('client.update');
 Route::get('/client/{id}/edit',[App\Http\Controllers\ClientController::class,'edit'])->name('client.edit');
 Route::get('/delete_client/{id}',[App\Http\Controllers\ClientController::class,'destroy'])->name('delete.client');

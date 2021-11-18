@@ -10,18 +10,19 @@
 	    			</div>
 	    		</div>
 
-				<form method="post">
+				<form enctype="multipart/form-data" method="post" action="{{route('store.client')}}" >
+					@csrf
 					<div class="form-section">
 						<label>Nume</label>
-						<input class="form-control" type="text"><br>
+						<input class="form-control" name="nume" type="text"><br>
 					</div>
 					<div class="form-section">
 						<label>Prenume</label>
-						<input class="form-control" type="text"><br>
+						<input class="form-control"  name="prenume" type="text"><br>
 					</div>
 					<div class="form-section">
 						<label>Pachet</label>
-                        <select class="form-control" >
+                        <select class="form-control" name="pachet" >
                             <option selected>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -30,12 +31,28 @@
 					</div>
 					<div class="form-section">
 						<label>Email</label>
-						<input class="form-control" type="email"><br>
+						<input class="form-control" name="email" type="email"><br>
+					</div>
+
+					<div class="form-section">
+						<label>Telefon</label>
+						<input class="form-control" name="telefon" type="text"><br>
 					</div>
 					<div class="form-section">
 						<label>Adresa</label>
-						<input class="form-control" type="text"><br>
+						<input class="form-control" name="adresa" type="text"><br>
 					</div>
+
+					<div class="form-section">
+						<label>Data incheiere contract</label>
+						<input class="form-control" name="start_date" type="text"><br>
+					</div>
+
+					<div class="form-section">
+						<label>Durata contract</label>
+						<input class="form-control" name="durata" type="text"><br>
+					</div>
+
                     <div class="btn-group">
                         <input class="b bordcolor" type="reset" value="Anulare">
                         <input class="a bcolor" type="submit" value="Trimite">

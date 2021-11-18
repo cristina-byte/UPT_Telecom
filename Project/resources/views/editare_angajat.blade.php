@@ -6,11 +6,11 @@
 	    <div class="main_content_section">
 	    		<div class="row head ">
 	    			<div class="col-4 ">
-	    				<h2 class="header_page">Adauga un nou angajat</h2>
+	    				<h2 class="header_page">Editare angajat</h2>
 	    			</div>
 	    		</div>
 
-				<form enctype="multipart/form-data" method="post" action="{{route('store.angajat')}}">
+				<form enctype="multipart/form-data" method="post" action="{{route('update.angajat',['id'=>$angajat->id])}}">
 					 @csrf
 					<div class="form-section">
 						<label>Nume:</label>
