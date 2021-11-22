@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Serviciu;
 
 class ServiciuController extends Controller
 {
@@ -13,7 +14,8 @@ class ServiciuController extends Controller
      */
     public function index()
     {
-        return view('servicii');
+        $servicii=Serviciu::All();
+        return view('servicii',['servicii'=>$servicii]);
     }
 
     /**
@@ -23,7 +25,7 @@ class ServiciuController extends Controller
      */
     public function create()
     {
-        //
+        return view('adaugare_serviciu');
     }
 
     /**
@@ -34,7 +36,16 @@ class ServiciuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $serviciu=new Serviciu;
+
+
+        $serviciu->nivel=$request->nivel;
+        $serviciu->tip=$request->tip;
+        $serviciu->pret=$request->pret;
+        $serviciu->descriere=$request->descriere;
+        $serviciu->save();
+
+        return redirect()->route('serviciu');
     }
 
     /**
@@ -56,7 +67,8 @@ class ServiciuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $serviciu=Serviciu::findOrFail($id);
+        return view('editare_serviciu',['serviciu'=>$serviciu]);
     }
 
     /**
@@ -68,7 +80,17 @@ class ServiciuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $serviciu=Serviciu::findOrFail($id);
+        $serviciu->nivel=$request->nivel;
+        $serviciu->tip=$request->tip;
+        $serviciu->pret=$request->pret;
+        $serviciu->descriere=$request->descriere;
+        $serviciu->save();
+
+        return redirect()->route('serviciu');
+
+
+
     }
 
     /**
@@ -79,6 +101,9 @@ class ServiciuController extends Controller
      */
     public function destroy($id)
     {
-        //
+       Serviciu::destroy($id);
+
+        return redirect()->route('serviciu');
+
     }
 }

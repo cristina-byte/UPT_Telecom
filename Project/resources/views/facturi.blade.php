@@ -28,50 +28,28 @@
 	    				<td class="h">ID serviciu</td>
 	    				<td class="h">Cost</td>
 	    				<td class="h">Status</td>
-	    				<td class="h"></td>
-	    				<td class="h"></td>
+	    				<td class="h">Actiuni</td>
+	    				
 
 	    			</tr>
-	    			<tr>
-	    				<td>00001</td>
-	    				<td>C0293</td>
-	    				<td>10/21/23</td>
-	    				<td>S2344</td>
-	    				<td>47</td>
-	    				<td>Done</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
+
+	    			@foreach($facturi as $factura)
+
+                    <tr>
+	    				<td class="h">{{$factura->id}}</td>
+	    				<td class="h">{{$factura->id_client}}</td>
+	    				<td class="h">{{$factura->perioada}}</td>
+	    				<td class="h">{{$factura->id_serviciu}}</td>
+	    				<td class="h">{{$factura->pret}}</td>
+	    				<td class="h">{{$factura->status}}</td>
+	    				<td class="h"><a href="{{route('edit_factura',['id'=>$factura->id])}}">Edit</a></td>
+	    				
+
 	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>C0293</td>
-                        <td>10/21/23</td>
-                        <td>S2344</td>
-                        <td>47</td>
-                        <td>Done</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>C0293</td>
-                        <td>10/21/23</td>
-                        <td>S2344</td>
-                        <td>47</td>
-                        <td>Done</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>C0293</td>
-                        <td>10/21/23</td>
-                        <td>S2344</td>
-                        <td>47</td>
-                        <td>Done</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
+
+	    			@endforeach
+
+	    			
 	    		</table>
 	    	</div>
 	    </div>

@@ -14,6 +14,7 @@
 	    			</div>
 
 	    			<div class="col-5 pt-2">
+	    					<a href="{{route('add_serviciu')}}" class="a bcolor">Adaugare</a>
 	    				<a href="" class="b bordcolor">Avansat</a>
 	    			</div>
 	    		</div>
@@ -26,46 +27,22 @@
 	    				<td class="h">Nivel</td>
 	    				<td class="h">Pret</td>
 	    				<td class="h">Descriere</td>
-	    				<td class="h"></td>
-	    				<td class="h"></td>
+	    				<td colspan="2" class="h">Actiuni</td>
+	    				
 
 	    			</tr>
+
+	    			@foreach($servicii as $serviciu)
 	    			<tr>
-	    				<td>00001</td>
-	    				<td>Pachet1</td>
-	    				<td>Low</td>
-	    				<td>345</td>
-	    				<td>Cel mai exclusivist pachet</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
+	    				<td>{{$serviciu->id}}</td>
+	    				<td>{{$serviciu->tip}}</td>
+	    				<td>{{$serviciu->nivel}}</td>
+	    				<td>{{$serviciu->pret}}</td>
+	    				<td>{{$serviciu->descriere}}</td>
+						<td><a href="{{route('edit_serviciu',['id'=>$serviciu->id])}}">Edit</a></td>
+						<td><a href="{{route('delete_serviciu',['id'=>$serviciu->id])}}">Delete</a></td>
 	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Pachet1</td>
-                        <td>Low</td>
-                        <td>345</td>
-                        <td>Cel mai exclusivist pachet</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Pachet1</td>
-                        <td>Low</td>
-                        <td>345</td>
-                        <td>Cel mai exclusivist pachet</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>Pachet1</td>
-                        <td>Low</td>
-                        <td>345</td>
-                        <td>Cel mai exclusivist pachet</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
+	    			@endforeach
 	    		</table>
 	    	</div>
 	    </div>

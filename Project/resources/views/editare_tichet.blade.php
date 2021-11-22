@@ -6,11 +6,11 @@
 	    <div class="main_content_section">
 	    		<div class="row head ">
 	    			<div class="col-4 ">
-	    				<h2 class="header_page">Adauga un nou tichet</h2>
+	    				<h2 class="header_page">Editare tichet</h2>
 	    			</div>
 	    		</div>
 
-				<form enctype="multipart/form-data" method="post" action="{{route('store.tichete')}}">
+				<form enctype="multipart/form-data" method="post" action="{{route('update_tichete',['id'=>$tichet->id])}}">
 					@csrf
 					<div class="form-section">
 						<label>Responsabil</label>

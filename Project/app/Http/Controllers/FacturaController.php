@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Factura;
+use App\Models\Serviciu;
+use App\Models\Client;
 
 class FacturaController extends Controller
 {
@@ -13,7 +16,8 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        return view('facturi');
+        $facturi=Factura::All();
+        return view('facturi',['facturi'=>$facturi]);
     }
 
     /**
@@ -23,7 +27,9 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        return view('adaugare_factura');
+        $clienti=Client::All();
+        $servicii=Serviciu::All();
+        return view('adaugare_factura',['servicii'=>$servicii,'clienti'=>$clienti]);
     }
 
     /**
@@ -34,7 +40,18 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+  $factura=new Factura;
+
+  $factura->id_client=$request->id_client;
+   $factura->id_serviciu=$request->id_serviciu;
+    $factura->pret=$request->pret;
+     $factura->status=$request->status;
+      $factura->perioada=$request->data_scadenta;
+      $factura->save();
+
+      return redirect()->route("factura");
+
     }
 
     /**
@@ -56,7 +73,11 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $factura=Factura::findOrFail($id);
+        $clienti=Client::All();
+        $servicii=Serviciu::All();
+
+        return view("editare_factura",['factura'=>$factura,'servicii'=>$servicii,'clienti'=>$clienti]);
     }
 
     /**
@@ -68,7 +89,17 @@ class FacturaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $factura=Factura::findOrFail($id);
+          $factura->id_client=$request->id_client;
+   $factura->id_serviciu=$request->id_serviciu;
+    $factura->pret=$request->pret;
+     $factura->status=$request->status;
+      $factura->perioada=$request->data_scadenta;
+      $factura->save();
+
+      return redirect()->route("factura");
+
+
     }
 
     /**

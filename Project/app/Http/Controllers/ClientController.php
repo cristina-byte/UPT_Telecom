@@ -52,7 +52,7 @@ class ClientController extends Controller
 
                $client->save();
 
-            return redirect()->route('clienti');
+            return redirect()->route('client');
 
     }
 
@@ -75,7 +75,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view("editare_client");
     }
 
     /**

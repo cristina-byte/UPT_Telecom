@@ -6,14 +6,16 @@
 	    <div class="main_content_section">
 	    		<div class="row head ">
 	    			<div class="col-5">
-	    				<h2 class="header_page">Adauga o noua factura</h2>
+	    				<h2 class="header_page">Editare factura</h2>
 	    			</div>
 	    		</div>
 
-				<form enctype="multipart/form-data" method="post" action="{{route('store.factura')}}">
+				<form enctype="multipart/form-data" method="post" action="{{route('update_factura',['id'=>$factura->id])}}">
 					@csrf
 					<div class="form-section">
 						<label>ID Client</label>
+
+
 						<select class="form-control" name="id_client" >
                            
                            @foreach($clienti as $client)
@@ -22,6 +24,8 @@
                            @endforeach 
                         </select>
 						
+
+
 					</div>
 					<div class="form-section">
 						<label>ID Serviciu</label>
@@ -47,7 +51,7 @@
 					</div>
                     <div class="form-section">
 						<label>Status</label>
-                        <select class="form-control" name="status" >
+                        <select class="form-control" name="status">
                             <option>done</option>
                             <option>in progress</option>
                             <option>new</option>

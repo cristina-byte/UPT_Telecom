@@ -27,54 +27,27 @@
 	    				<td class="h">Urgenta</td>
 	    				<td class="h">Descriere</td>
 	    				<td class="h">Data raportare</td>
-	    				<td class="h"></td>
-	    				<td class="h"></td>
+	    				<td  class="h">Actiuni</td>
+	    				
 
 	    			</tr>
+               
+               @foreach($tichete as $tichet)
+
 	    			<tr>
-	    				<td>00001</td>
-	    				<td>I87343</td>
-	    				<td>C93837</td>
-	    				<td>new</td>
-	    				<td>high</td>
-	    				<td>OOPS</td>
-	    				<td>10/10/10</td>
-						<td><a>Edit</a></td>
-						<td><a>Delete</a></td>
+	    				<td>{{$tichet->id}}</td>
+	    				<td>{{$tichet->id_responsabil}}</td>
+	    				<td>{{$tichet->id_client}}</td>
+	    				<td>{{$tichet->status}}</td>
+	    				<td>{{$tichet->urgenta}}</td>
+	    				<td>{{$tichet->descriere}}</td>
+	    				<td>{{$tichet->created_at}}</td>
+						<td><a href="{{route('edit_tichete',['id'=>$tichet->id])}}">Edit</a></td>
+						
 	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>I87343</td>
-                        <td>C93837</td>
-                        <td>new</td>
-                        <td>high</td>
-                        <td>OOPS</td>
-                        <td>10/10/10</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>I87343</td>
-                        <td>C93837</td>
-                        <td>new</td>
-                        <td>high</td>
-                        <td>OOPS</td>
-                        <td>10/10/10</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
-	    			<tr>
-                        <td>00001</td>
-                        <td>I87343</td>
-                        <td>C93837</td>
-                        <td>new</td>
-                        <td>high</td>
-                        <td>OOPS</td>
-                        <td>10/10/10</td>
-                        <td><a>Edit</a></td>
-                        <td><a>Delete</a></td>
-	    			</tr>
+               @endforeach
+
+	    			
 	    		</table>
 	    	</div>
 	    </div>
