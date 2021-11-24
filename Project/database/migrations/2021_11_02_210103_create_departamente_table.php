@@ -13,10 +13,10 @@ class CreateDepartamenteTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamente', function (Blueprint $table) {   
-             $table->bigIncrements('id');
-             $table->string('nume',20);
-             $table->timestamps();
+        Schema::create('departamente', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('nume', 20);
+            $table->timestamps();
         });
     }
 

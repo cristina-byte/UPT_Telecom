@@ -15,12 +15,11 @@ class CreateServiciiTable extends Migration
     {
         Schema::create('servicii', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('tip',['pachet1','pachet2', 'pachet3']);
-            $table->enum('nivel',['low','medium', 'high']);
+            $table->enum('tip', ['pachet1', 'pachet2', 'pachet3']);
+            $table->enum('nivel', ['low', 'medium', 'high']);
             $table->integer('pret');
             $table->string('descriere', 30);
             $table->timestamps();
-
         });
     }
 

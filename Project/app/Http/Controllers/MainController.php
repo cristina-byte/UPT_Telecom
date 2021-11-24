@@ -13,11 +13,5 @@ public function getDashboard(){
 	return view('dashboard');
 }
 
-
-
-
-
-
-
-
+ 
 }

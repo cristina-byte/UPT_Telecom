@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Factura extends Model
 {
     use HasFactory;
-    public $table="facturi";
+    public $table = "facturi";
     protected $guarded = [];
 }

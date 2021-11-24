@@ -16,8 +16,8 @@ class FacturaController extends Controller
      */
     public function index()
     {
-        $facturi=Factura::All();
-        return view('facturi',['facturi'=>$facturi]);
+        $facturi = Factura::All();
+        return view('facturi', ['facturi' => $facturi]);
     }
 
     /**
@@ -27,9 +27,9 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        $clienti=Client::All();
-        $servicii=Serviciu::All();
-        return view('adaugare_factura',['servicii'=>$servicii,'clienti'=>$clienti]);
+        $clienti = Client::All();
+        $servicii = Serviciu::All();
+        return view('adaugare_factura', ['servicii' => $servicii, 'clienti' => $clienti]);
     }
 
     /**
@@ -40,18 +40,29 @@ class FacturaController extends Controller
      */
     public function store(Request $request)
     {
-        
-  $factura=new Factura;
 
-  $factura->id_client=$request->id_client;
-   $factura->id_serviciu=$request->id_serviciu;
-    $factura->pret=$request->pret;
-     $factura->status=$request->status;
-      $factura->perioada=$request->data_scadenta;
-      $factura->save();
 
-      return redirect()->route("factura");
+        $this->validate($request, array(
 
+            'id_client' => 'required',
+            'id_serviciu' => 'required',
+            'pret' => 'required|digits',
+            'status' => 'required',
+            'data_scadenta' => 'required'
+
+        ));
+
+
+        $factura = new Factura;
+
+        $factura->id_client = $request->id_client;
+        $factura->id_serviciu = $request->id_serviciu;
+        $factura->pret = $request->pret;
+        $factura->status = $request->status;
+        $factura->perioada = $request->data_scadenta;
+        $factura->save();
+
+        return redirect()->route("factura");
     }
 
     /**
@@ -73,11 +84,11 @@ class FacturaController extends Controller
      */
     public function edit($id)
     {
-        $factura=Factura::findOrFail($id);
-        $clienti=Client::All();
-        $servicii=Serviciu::All();
+        $factura = Factura::findOrFail($id);
+        $clienti = Client::All();
+        $servicii = Serviciu::All();
 
-        return view("editare_factura",['factura'=>$factura,'servicii'=>$servicii,'clienti'=>$clienti]);
+        return view("editare_factura", ['factura' => $factura, 'servicii' => $servicii, 'clienti' => $clienti]);
     }
 
     /**
@@ -89,17 +100,15 @@ class FacturaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $factura=Factura::findOrFail($id);
-          $factura->id_client=$request->id_client;
-   $factura->id_serviciu=$request->id_serviciu;
-    $factura->pret=$request->pret;
-     $factura->status=$request->status;
-      $factura->perioada=$request->data_scadenta;
-      $factura->save();
+        $factura = Factura::findOrFail($id);
+        $factura->id_client = $request->id_client;
+        $factura->id_serviciu = $request->id_serviciu;
+        $factura->pret = $request->pret;
+        $factura->status = $request->status;
+        $factura->perioada = $request->data_scadenta;
+        $factura->save();
 
-      return redirect()->route("factura");
-
-
+        return redirect()->route("factura");
     }
 
     /**

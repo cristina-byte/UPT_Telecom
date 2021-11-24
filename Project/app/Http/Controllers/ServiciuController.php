@@ -14,8 +14,8 @@ class ServiciuController extends Controller
      */
     public function index()
     {
-        $servicii=Serviciu::All();
-        return view('servicii',['servicii'=>$servicii]);
+        $servicii = Serviciu::All();
+        return view('servicii', ['servicii' => $servicii]);
     }
 
     /**
@@ -36,13 +36,22 @@ class ServiciuController extends Controller
      */
     public function store(Request $request)
     {
-        $serviciu=new Serviciu;
 
+        $this->validate($request, array(
 
-        $serviciu->nivel=$request->nivel;
-        $serviciu->tip=$request->tip;
-        $serviciu->pret=$request->pret;
-        $serviciu->descriere=$request->descriere;
+            'nivel' => 'required',
+            'tip' => 'required',
+            'pret' => 'required',
+            'descriere' => 'required'
+            
+        ));
+
+        $serviciu = new Serviciu;
+
+        $serviciu->nivel = $request->nivel;
+        $serviciu->tip = $request->tip;
+        $serviciu->pret = $request->pret;
+        $serviciu->descriere = $request->descriere;
         $serviciu->save();
 
         return redirect()->route('serviciu');
@@ -67,8 +76,8 @@ class ServiciuController extends Controller
      */
     public function edit($id)
     {
-        $serviciu=Serviciu::findOrFail($id);
-        return view('editare_serviciu',['serviciu'=>$serviciu]);
+        $serviciu = Serviciu::findOrFail($id);
+        return view('editare_serviciu', ['serviciu' => $serviciu]);
     }
 
     /**
@@ -80,17 +89,14 @@ class ServiciuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $serviciu=Serviciu::findOrFail($id);
-        $serviciu->nivel=$request->nivel;
-        $serviciu->tip=$request->tip;
-        $serviciu->pret=$request->pret;
-        $serviciu->descriere=$request->descriere;
+        $serviciu = Serviciu::findOrFail($id);
+        $serviciu->nivel = $request->nivel;
+        $serviciu->tip = $request->tip;
+        $serviciu->pret = $request->pret;
+        $serviciu->descriere = $request->descriere;
         $serviciu->save();
 
         return redirect()->route('serviciu');
-
-
-
     }
 
     /**
@@ -101,9 +107,8 @@ class ServiciuController extends Controller
      */
     public function destroy($id)
     {
-       Serviciu::destroy($id);
+        Serviciu::destroy($id);
 
         return redirect()->route('serviciu');
-
     }
 }

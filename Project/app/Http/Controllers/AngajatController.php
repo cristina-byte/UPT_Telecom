@@ -14,24 +14,18 @@ class AngajatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-
-
-
-    
-       $departamente=Departament::All();
-       $angajati = Angajat::select('angajati.*','departamente.nume as departament' )
-      ->leftJoin('departamente','departamente.id','angajati.id_departament')->get();
-        
-    
-
-        return view('angajati',
-            ['angajati'=>$angajati
-
-
-            ]);
-
-
+    { 
+        $departamente = Departament::All();
+        $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')->get();
+ 
+        return view(
+            'angajati',
+            [
+                'angajati' => $angajati
+ 
+            ]
+        );
     }
 
     /**
@@ -40,8 +34,8 @@ class AngajatController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {    
-       return view('adaugare_angajat');
+    {
+        return view('adaugare_angajat');
     }
 
     /**
@@ -52,25 +46,33 @@ class AngajatController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
-        $angajat=new Angajat;
 
+        $this->validate($request, array(
 
-        $angajat->nume=$request->nume;
-         $angajat->prenume=$request->prenume;
-         $angajat->adresa=$request->adresa;
-         $angajat->telefon=$request->telefon;
-         $angajat->email=$request->email;
-          $angajat->salariu=$request->salariu;
-          $angajat->functie=$request->functie;
-           $angajat->id_departament=$request->id_departament;
-           $angajat->save();
+            'nume' => 'required',
+            'prenume' => 'required',
+            'adresa' => 'required|string',
+            'telefon' => 'required|digits:9',
+            'email' => 'required|email:rfc,dns',
+            'salariu' => 'required|digits',
+            'functie' => 'required|string',
+            'id_departament' => 'required'
 
+        ));
 
-    
+        $angajat = new Angajat;
 
-       return view('adaugare_angajat');
+        $angajat->nume = $request->nume;
+        $angajat->prenume = $request->prenume;
+        $angajat->adresa = $request->adresa;
+        $angajat->telefon = $request->telefon;
+        $angajat->email = $request->email;
+        $angajat->salariu = $request->salariu;
+        $angajat->functie = $request->functie;
+        $angajat->id_departament = $request->id_departament;
+        $angajat->save();
+ 
+        return view('adaugare_angajat');
     }
 
     /**
@@ -92,9 +94,9 @@ class AngajatController extends Controller
      */
     public function edit($id)
     {
-      $angajat=Angajat::findOrFail($id);
-        
-      return view('editare_angajat',['angajat'=>$angajat]);
+        $angajat = Angajat::findOrFail($id);
+
+        return view('editare_angajat', ['angajat' => $angajat]);
     }
 
     /**
@@ -106,23 +108,21 @@ class AngajatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-    
-     $angajat=Angajat::findOrFail($id);
-     $angajat->nume=$request->nume;
-         $angajat->prenume=$request->prenume;
-         $angajat->adresa=$request->adresa;
-         $angajat->telefon=$request->telefon;
-         $angajat->email=$request->email;
-          $angajat->salariu=$request->salariu;
-          $angajat->functie=$request->functie;
-           $angajat->id_departament=$request->id_departament;
-           $angajat->save();
-
-          
-     return redirect()->route('editare_angajat');
 
 
+        $angajat = Angajat::findOrFail($id);
+        $angajat->nume = $request->nume;
+        $angajat->prenume = $request->prenume;
+        $angajat->adresa = $request->adresa;
+        $angajat->telefon = $request->telefon;
+        $angajat->email = $request->email;
+        $angajat->salariu = $request->salariu;
+        $angajat->functie = $request->functie;
+        $angajat->id_departament = $request->id_departament;
+        $angajat->save();
+
+
+        return redirect()->route('editare_angajat');
     }
 
     /**
@@ -133,13 +133,9 @@ class AngajatController extends Controller
      */
     public function destroy($id)
     {
-        
+
         Angajat::destroy($id);
 
-       return redirect()->route('angajat');
-
-       
-
-
+        return redirect()->route('angajat');
     }
 }

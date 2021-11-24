@@ -16,8 +16,8 @@ class ClientController extends Controller
     {
 
 
-        $clienti=Client::All();
-        return view('clienti',['clienti'=>$clienti]);
+        $clienti = Client::All();
+        return view('clienti', ['clienti' => $clienti]);
     }
 
     /**
@@ -38,22 +38,35 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client=new Client;
 
 
-        $client->nume=$request->nume;
-         $client->prenume=$request->prenume;
-          $client->id_serviciu=$request->pachet;
-           $client->email=$request->email;
-            $client->adresa=$request->adresa;
-             $client->telefon=$request->telefon;
-              $client->start_date=$request->start_date;
-               $client->durata_min=$request->durata;
+        $this->validate($request, array(
 
-               $client->save();
+            'nume' => 'required',
+            'prenume' => 'required',
+            'pachet' => 'required',
+            'email' => 'required|email:rfc,dns',
+            'adresa' => 'required',
+            'telefon' => 'required|digits:9',
+            'start_date' => 'required',
+            'durata' => 'required' 
 
-            return redirect()->route('client');
+        ));
 
+        $client = new Client;
+
+        $client->nume = $request->nume;
+        $client->prenume = $request->prenume;
+        $client->id_serviciu = $request->pachet;
+        $client->email = $request->email;
+        $client->adresa = $request->adresa;
+        $client->telefon = $request->telefon;
+        $client->start_date = $request->start_date;
+        $client->durata_min = $request->durata;
+
+        $client->save();
+
+        return redirect()->route('client');
     }
 
     /**
@@ -87,22 +100,21 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $client=Client::findOrFail($id);
-     
-          $client->nume=$request->nume;
-         $client->prenume=$request->prenume;
-          $client->id_serviciu=$request->pachet;
-           $client->email=$request->email;
-            $client->adresa=$request->adresa;
-             $client->telefon=$request->telefon;
-              $client->start_date=$request->start_date;
-               $client->durata_min=$request->durata;
 
-               $client->save();
+        $client = Client::findOrFail($id);
 
-            return redirect()->route('clienti');
+        $client->nume = $request->nume;
+        $client->prenume = $request->prenume;
+        $client->id_serviciu = $request->pachet;
+        $client->email = $request->email;
+        $client->adresa = $request->adresa;
+        $client->telefon = $request->telefon;
+        $client->start_date = $request->start_date;
+        $client->durata_min = $request->durata;
 
+        $client->save();
+
+        return redirect()->route('clienti');
     }
 
     /**
@@ -113,9 +125,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-       Client::destroy($id);
+        Client::destroy($id);
         return redirect()->route('clienti');
-
-
     }
 }
