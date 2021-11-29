@@ -17,7 +17,7 @@ class CreateClientiTable extends Migration
             $table->bigIncrements('id');
             $table->string('nume', 20);
             $table->string('prenume', 20);
-            $table->string('email', 20);
+            $table->string('email', 40);
             $table->string('adresa', 40);
             $table->string('telefon');
             $table->unsignedBigInteger('id_serviciu');

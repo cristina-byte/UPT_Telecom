@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Factura;
 use App\Models\Serviciu;
 use App\Models\Client;
+use App\Http\Requests\StoreFacturaRequest;
 
 class FacturaController extends Controller
 {
@@ -38,20 +39,11 @@ class FacturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFacturaRequest $request)
     {
 
 
-        $this->validate($request, array(
-
-            'id_client' => 'required',
-            'id_serviciu' => 'required',
-            'pret' => 'required|digits',
-            'status' => 'required',
-            'data_scadenta' => 'required'
-
-        ));
-
+       $request->validate();
 
         $factura = new Factura;
 
@@ -98,8 +90,10 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreFacturaRequest $request, $id)
     {
+
+        $request->validate();
         $factura = Factura::findOrFail($id);
         $factura->id_client = $request->id_client;
         $factura->id_serviciu = $request->id_serviciu;

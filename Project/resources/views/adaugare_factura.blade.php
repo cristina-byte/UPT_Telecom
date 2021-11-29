@@ -39,15 +39,21 @@
 			<div class="form-section">
 				<label>Pret</label>
 				<textarea class="form-control" name="pret" type="text"></textarea>
+				@error('pret')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="form-section">
 				<label>Data Scadenta</label>
 				<input class="form-control" name="data_scadenta" type="date"><br>
+				@error('data_scadenta')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="form-section">
 				<label>Status</label>
 				<select class="form-control" name="status">
-					<option>done</option>
+					<option selected>done</option>
 					<option>in progress</option>
 					<option>new</option>
 				</select>

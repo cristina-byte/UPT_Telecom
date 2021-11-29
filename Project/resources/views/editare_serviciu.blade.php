@@ -33,10 +33,16 @@
 			<div class="form-section">
 				<label>Pret:</label>
 				<input class="form-control" name="pret" type="text"></input>
+				@error('pret')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="form-section">
 				<label>Descriere:</label>
 				<input class="form-control" name="descriere" type="text"></input>
+				@error('descriere')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 
 			<div class="btn-group">
