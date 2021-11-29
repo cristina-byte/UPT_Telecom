@@ -15,7 +15,7 @@
 			<div class="col-5 pt-2">
 
 	<div style="display:inline;"class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class=" dropdown-toggle  a bcolor" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Status
   </button>
 
@@ -75,7 +75,9 @@
 var dropdown=document.getElementById('dropdownMenuButton');
 var droplist=document.getElementById('list');
 
+droplist.style.display="none";
 dropdown.addEventListener('click', function(){
+	console.log(droplist.style);
 
 if(droplist.style.display=="none")
 	droplist.style.display="block";

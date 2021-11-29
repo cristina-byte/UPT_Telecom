@@ -29,6 +29,36 @@ class AngajatController extends Controller
         );
     }
 
+
+public function search(Request $request){
+
+
+      $this->validate($request,['nume'=>'required']);
+
+      
+
+       $departamente = Departament::All();
+        $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')->where('angajati.nume',$request->nume)->get();
+
+            return view(
+            'angajati',
+            [
+                'angajati' => $angajati
+ 
+            ]
+        );
+
+
+
+
+}
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
