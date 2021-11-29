@@ -26,7 +26,7 @@ class StoreFacturaRequest extends FormRequest
         return [
           'id_client' => 'required',
             'id_serviciu' => 'required',
-            'pret' => 'required|digits',
+            'pret' => 'required',
             'status' => 'required',
             'data_scadenta' => 'required'
         ];

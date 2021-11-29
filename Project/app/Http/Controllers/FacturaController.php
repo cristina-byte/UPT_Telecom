@@ -21,6 +21,16 @@ class FacturaController extends Controller
         return view('facturi', ['facturi' => $facturi]);
     }
 
+
+    public function cauta_factura($status)
+    {
+        
+
+        $facturi=Factura::select('*')->where('status',$status)->get();
+        return view('facturi', ['facturi' => $facturi]);
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,7 +53,7 @@ class FacturaController extends Controller
     {
 
 
-       $request->validate();
+      
 
         $factura = new Factura;
 
@@ -93,7 +103,7 @@ class FacturaController extends Controller
     public function update(StoreFacturaRequest $request, $id)
     {
 
-        $request->validate();
+        
         $factura = Factura::findOrFail($id);
         $factura->id_client = $request->id_client;
         $factura->id_serviciu = $request->id_serviciu;

@@ -37,7 +37,7 @@ class ServiciuController extends Controller
     public function store(StoreServiciuRequest $request)
     {
 
-         $request->validate();
+         
         $serviciu = new Serviciu;
 
         $serviciu->nivel = $request->nivel;
@@ -82,7 +82,7 @@ class ServiciuController extends Controller
     public function update(StoreServiciuRequest $request, $id)
     {
 
-        $request->validate();
+        
         $serviciu = Serviciu::findOrFail($id);
         $serviciu->nivel = $request->nivel;
         $serviciu->tip = $request->tip;

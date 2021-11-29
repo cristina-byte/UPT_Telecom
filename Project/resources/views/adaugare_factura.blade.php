@@ -54,8 +54,8 @@
 				<label>Status</label>
 				<select class="form-control" name="status">
 					<option selected>done</option>
-					<option>in progress</option>
 					<option>new</option>
+					<option>in progress</option>
 				</select>
 			</div>
 			<div class="btn-group">

@@ -49,7 +49,7 @@ class AngajatController extends Controller
     public function store(StoreAngajatRequest $request)
     {
 
-       $request->validate();
+      
         $angajat = new Angajat;
 
         $angajat->nume = $request->nume;
@@ -99,7 +99,7 @@ class AngajatController extends Controller
     public function update(StoreAngajatRequest $request, $id)
     {
 
-       $request->validate();
+       
         $angajat = Angajat::findOrFail($id);
         $angajat->nume = $request->nume;
         $angajat->prenume = $request->prenume;

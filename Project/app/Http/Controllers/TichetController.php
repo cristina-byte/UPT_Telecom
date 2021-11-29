@@ -45,7 +45,7 @@ class TichetController extends Controller
     public function store(StoreTichetRequest $request)
     {
 
-        $request->validate();
+        
 
         $tichet = new Tichet;
  
@@ -95,7 +95,7 @@ class TichetController extends Controller
     public function update(StoreTichetRequest $request, $id)
     {
 
-        $request->validate();
+        
         $tichet = Tichet::findOrFail($id);
         $tichet->id_responsabil = $request->responsabil;
         $tichet->id_client = $request->client;

@@ -20,9 +20,9 @@
   </button>
 
   <div id="list" class="dropdown-menu" >
-    <a class="dropdown-item" href="#">status1</a>
-    <a class="dropdown-item" href="#">status2</a>
-    <a class="dropdown-item" href="#">status2</a>
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"done"])}}">status1</a>
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"new"])}}">status2</a>
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"in progress"])}}">status2</a>
   </div>
 </div>
 				<a href="{{route('add_factura')}}" class="a bcolor">Adaugare</a>
@@ -77,10 +77,10 @@ var droplist=document.getElementById('list');
 
 dropdown.addEventListener('click', function(){
 
-
-
-	console.log(droplist);
-
+if(droplist.style.display=="none")
+	droplist.style.display="block";
+else
+	droplist.style.display="none";
 
 })
 

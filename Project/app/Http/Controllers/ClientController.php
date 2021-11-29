@@ -60,7 +60,7 @@ class ClientController extends Controller
     {
 
 
-        $request->validated();
+       
 
         $client = new Client;
 
@@ -112,7 +112,7 @@ class ClientController extends Controller
     {
 
 
-        $request->validate();
+       
         $client = Client::findOrFail($id);
 
         $client->nume = $request->nume;
