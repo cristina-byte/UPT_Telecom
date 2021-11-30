@@ -37,15 +37,21 @@
 			<div class="form-section">
 				<label>Descriere</label>
 				<textarea class="form-control" name="descriere" type="text"></textarea>
+				@error('descriere')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="form-section">
 				<label>Data raportare</label>
 				<input class="form-control" name="d_raportare" type="text">
+				@error('d_raportare')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
 			</div>
 			<div class="form-section">
 				<label>Status</label>
 				<select class="form-control" name="status">
-					<option>done</option>
+					<option selected>done</option>
 					<option>in progres</option>
 					<option>new</option>
 				</select>
@@ -53,7 +59,7 @@
 			<div class="form-section">
 				<label>Urgenta</label>
 				<select class="form-control" name="urgenta">
-					<option>High</option>
+					<option selected>High</option>
 					<option>Medium</option>
 					<option>Low</option>
 				</select>

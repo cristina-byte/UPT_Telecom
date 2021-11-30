@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Angajat;
 use App\Models\Client;
 use App\Models\Tichet;
+use App\Http\Requests\StoreTichetRequest;
 
 class TichetController extends Controller
 {
@@ -41,19 +42,10 @@ class TichetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTichetRequest $request)
     {
 
-        $this->validate($request, array(
-
-            'responsabil' => 'required',
-            'client' => 'required',
-            'urgenta' => 'required',
-            'status' => 'required',
-            'descriere' => 'required',
-            'd_raportare' => 'required' 
-            
-        ));
+        
 
         $tichet = new Tichet;
  
@@ -100,8 +92,10 @@ class TichetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreTichetRequest $request, $id)
     {
+
+        
         $tichet = Tichet::findOrFail($id);
         $tichet->id_responsabil = $request->responsabil;
         $tichet->id_client = $request->client;

@@ -4,16 +4,27 @@
 <section class="web_site">
 	<div class="main_content_section">
 		<div class="row head ">
-			<div class="col-4 ">
+			<div class="col-3 ">
 				<h2 class="header_page">Facturi</h2>
 
 			</div>
-			<div class="col-3 pt-2">
+			<div class="col-4 pt-2">
 				<input type="text" class="search" placeholder="Cauta...">
 			</div>
 
 			<div class="col-5 pt-2">
-				<a href="" class="b bordcolor">Avansat</a>
+
+	<div style="display:inline;"class="dropdown">
+  <button class=" dropdown-toggle  a bcolor" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Status
+  </button>
+
+  <div id="list" class="dropdown-menu" >
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"done"])}}">status1</a>
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"new"])}}">status2</a>
+    <a class="dropdown-item" href="{{route('cauta_factura',['status'=>"in progress"])}}">status2</a>
+  </div>
+</div>
 				<a href="{{route('add_factura')}}" class="a bcolor">Adaugare</a>
 			</div>
 		</div>
@@ -53,4 +64,30 @@
 		</div>
 	</div>
 </section>
+
+
+
+
+<script>
+
+
+
+var dropdown=document.getElementById('dropdownMenuButton');
+var droplist=document.getElementById('list');
+
+droplist.style.display="none";
+dropdown.addEventListener('click', function(){
+	console.log(droplist.style);
+
+if(droplist.style.display=="none")
+	droplist.style.display="block";
+else
+	droplist.style.display="none";
+
+})
+
+
+
+
+</script>
 @endsection

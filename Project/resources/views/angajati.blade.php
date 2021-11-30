@@ -3,20 +3,24 @@
 
 <section class="web_site">
 	<div class="main_content_section">
-		<div class="row head ">
+
+
+		<form enctype="multipart/form-data" method="post" action="{{route('cauta_angajat')}}" class="row head ">
+			@csrf
 			<div class="col-3 pt-2">
 				<h2 class="header_page">Angajati</h2>
 
 			</div>
 			<div class="col-4 pt-2">
-				<input type="text" class="search" placeholder="Cauta...">
+				<input type="text" class="search" placeholder="Cauta..." name="nume">
 			</div>
 
 			<div class="col-5 pt-2">
+				<button type="submit" class="b bordcolor">Cauta</button>
 				<a href="" class="b bordcolor">Avansat</a>
 				<a href="{{route('add_angajat')}}" class="a bcolor">Adaugare</a>
 			</div>
-		</div>
+		</form>
 
 		<div class="row ">
 			<table style="margin-top: 101px;  margin-left: 30px; border-radius: 6px;box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.03);">

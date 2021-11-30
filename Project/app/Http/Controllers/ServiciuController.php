@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Serviciu;
-
+use App\Http\Requests\StoreServiciuRequest;
 class ServiciuController extends Controller
 {
     /**
@@ -34,18 +34,10 @@ class ServiciuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreServiciuRequest $request)
     {
 
-        $this->validate($request, array(
-
-            'nivel' => 'required',
-            'tip' => 'required',
-            'pret' => 'required',
-            'descriere' => 'required'
-            
-        ));
-
+         
         $serviciu = new Serviciu;
 
         $serviciu->nivel = $request->nivel;
@@ -87,8 +79,10 @@ class ServiciuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreServiciuRequest $request, $id)
     {
+
+        
         $serviciu = Serviciu::findOrFail($id);
         $serviciu->nivel = $request->nivel;
         $serviciu->tip = $request->tip;

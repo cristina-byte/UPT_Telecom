@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Angajat;
 use App\Models\Departament;
+use App\Http\Requests\StoreAngajatRequest;
 
 class AngajatController extends Controller
 {
@@ -28,6 +29,36 @@ class AngajatController extends Controller
         );
     }
 
+
+public function search(Request $request){
+
+
+      $this->validate($request,['nume'=>'required']);
+
+      
+
+       $departamente = Departament::All();
+        $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')->where('angajati.nume',$request->nume)->get();
+
+            return view(
+            'angajati',
+            [
+                'angajati' => $angajati
+ 
+            ]
+        );
+
+
+
+
+}
+
+
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,7 +66,8 @@ class AngajatController extends Controller
      */
     public function create()
     {
-        return view('adaugare_angajat');
+        $departamente=Departament::All();
+        return view('adaugare_angajat',['departamente'=>$departamente]);
     }
 
     /**
@@ -44,22 +76,10 @@ class AngajatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAngajatRequest $request)
     {
 
-        $this->validate($request, array(
-
-            'nume' => 'required',
-            'prenume' => 'required',
-            'adresa' => 'required|string',
-            'telefon' => 'required|digits:9',
-            'email' => 'required|email:rfc,dns',
-            'salariu' => 'required|digits',
-            'functie' => 'required|string',
-            'id_departament' => 'required'
-
-        ));
-
+      
         $angajat = new Angajat;
 
         $angajat->nume = $request->nume;
@@ -95,8 +115,8 @@ class AngajatController extends Controller
     public function edit($id)
     {
         $angajat = Angajat::findOrFail($id);
-
-        return view('editare_angajat', ['angajat' => $angajat]);
+        $departamente=Departament::All();
+        return view('editare_angajat', ['angajat' => $angajat,'departamente'=>$departamente]);
     }
 
     /**
@@ -106,10 +126,10 @@ class AngajatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAngajatRequest $request, $id)
     {
 
-
+       
         $angajat = Angajat::findOrFail($id);
         $angajat->nume = $request->nume;
         $angajat->prenume = $request->prenume;

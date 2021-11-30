@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Http\Requests\StoreClientRequest;
 
 class ClientController extends Controller
 {
@@ -19,6 +20,25 @@ class ClientController extends Controller
         $clienti = Client::All();
         return view('clienti', ['clienti' => $clienti]);
     }
+
+
+  public function search(Request $request)
+    {
+
+       $this->validate($request,['nume'=>'required']);
+
+      $clienti=Client::select('*')->where('nume',$request->nume)->get();
+      
+
+   
+        return view('clienti', ['clienti' => $clienti]);
+
+
+   
+
+       
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,22 +56,11 @@ class ClientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
 
 
-        $this->validate($request, array(
-
-            'nume' => 'required',
-            'prenume' => 'required',
-            'pachet' => 'required',
-            'email' => 'required|email:rfc,dns',
-            'adresa' => 'required',
-            'telefon' => 'required|digits:9',
-            'start_date' => 'required',
-            'durata' => 'required' 
-
-        ));
+       
 
         $client = new Client;
 
@@ -88,7 +97,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        return view("editare_client");
+        $client=Client::findOrFail($id);
+        return view("editare_client",['client'=>$client]);
     }
 
     /**
@@ -98,9 +108,11 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreClientRequest $request, $id)
     {
 
+
+       
         $client = Client::findOrFail($id);
 
         $client->nume = $request->nume;
