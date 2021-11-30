@@ -17,9 +17,9 @@ class TichetController extends Controller
     public function index()
     {
         $tichete = Tichet::All();
+ 
 
-
-
+        
         return view('tichete', ['tichete' => $tichete]);
     }
 
