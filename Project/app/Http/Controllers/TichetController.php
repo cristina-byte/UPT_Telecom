@@ -18,13 +18,51 @@ class TichetController extends Controller
     public function index()
     {
         $tichete = Tichet::All();
+        $tichete=Tichet::select('tichete.*', 'angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->get();
         return view('tichete', ['tichete' => $tichete]);
     }
 
-    public function cauta_tichet($status)
+    public function search(Request $request)
     {
-        $tichete=Tichet::select('*')->where('status',$status)->get();
+       
+
+        $tichete=Tichet::select('tichete.*','angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->where('nume',$request->nume)->get();
         return view('tichete', ['tichete' => $tichete]);
+    }
+
+
+
+
+    public function filter(Request $request){
+        if($request->status!=null ){
+            if($request->urgenta!=null){
+                $tichete=Tichet::select('tichete.*', 'angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->where('status',$request->status)->where('urgenta',$request->urgenta)->get();
+            }
+            else{
+                 $tichete=Tichet::select('tichete.*', 'angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->where('status',$request->status)->get();
+
+            }
+
+        }
+        else{
+            if($request->urgenta!=null){
+                echo $request->urgenta;
+                 $tichete=Tichet::select('tichete.*', 'angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->where('urgenta',$request->urgenta)->get();
+
+            }
+            else{
+                 $tichete=Tichet::select('tichete.*', 'angajati.nume','angajati.prenume')->leftJoin('angajati','tichete.id_responsabil','angajati.id')->get();
+            }
+        }
+
+
+
+
+            return view('tichete', ['tichete' => $tichete]);
+
+
+
+
     }
 
     /**
@@ -112,7 +150,5 @@ class TichetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-    }
+  
 }

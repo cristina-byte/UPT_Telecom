@@ -29,7 +29,7 @@ class StoreAngajatRequest extends FormRequest
             'adresa' => 'required|string',
             'telefon' => 'required|digits:9',
             'email' => 'required|email:rfc,dns',
-            'salariu' => 'required|digits',
+            'salariu' => 'required',
             'functie' => 'required|string',
             'id_departament' => 'required'
         ];

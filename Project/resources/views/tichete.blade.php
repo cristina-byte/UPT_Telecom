@@ -10,22 +10,25 @@
 
                 </div>
                 <div class="col-4 pt-2">
-                    <input type="text" class="search" placeholder="Cauta..." name="nume">
+                    <input type="text" class="search" placeholder="Cauta dupa responsabil..." name="nume">
                 </div>
 
                 <div class="col-5 pt-2">
                     <button type="submit" class="b bordcolor">Cauta</button>
+
+                </form>
                     <button onclick="showAdvanced()" type="button" class="b bordcolor">Avansat</button>
                     <a href="{{route('add_tichet')}}" class="a bcolor">Adaugare</a>
                 </div>
 
-                <div class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">
+                <form enctype="multipart/form-data" method="post" action="{{route('filter_tichete')}}" class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">
+                   @csrf
                     <br>
                     <h5>Filtreaza după:</h5>
                     <p style="margin-bottom: 0; padding-bottom: 0">Status</p>
                     <input class="form-check-input" type="radio" name="status" value="new">
                     <label class="form-check-label">New</label>
-                    <input class="form-check-input" type="radio" name="status" value="inprogress">
+                    <input class="form-check-input" type="radio" name="status" value="in progress">
                     <label class="form-check-label">In Progress</label>
                     <input class="form-check-input" type="radio" name="status" value="done">
                     <label class="form-check-label">Done</label>
@@ -38,9 +41,9 @@
                     <input class="form-check-input" type="radio" name="urgenta" value="low">
                     <label class="form-check-label">Slaba</label>
                     <br>
-                    <button type="button" class="a bcolor" style="margin-top: 15px">Filtreaza</button>
-                </div>
-            </form>
+                    <button type="submit" class="a bcolor" style="margin-top: 15px">Filtreaza</button>
+                </form>
+            
 
             <div class="row ">
                 <table
@@ -62,7 +65,7 @@
 
                         <tr>
                             <td>{{$tichet->id}}</td>
-                            <td>{{$tichet->id_responsabil}}</td>
+                            <td>{{$tichet->nume}} {{$tichet->prenume}}</td>
                             <td>{{$tichet->id_client}}</td>
                             <td>{{$tichet->status}}</td>
                             <td>{{$tichet->urgenta}}</td>

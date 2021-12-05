@@ -73,9 +73,12 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($status)
     {
-        //
+        $facturi=Factura::select('*')->where('status',$status)->get();
+        return view('facturi', ['facturi' => $facturi]);
+        
+        
     }
 
     /**

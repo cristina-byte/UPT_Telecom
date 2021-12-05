@@ -53,9 +53,9 @@
 			<div class="form-section">
 				<label>Status</label>
 				<select class="form-control" name="status">
-					<option selected>done</option>
-					<option>new</option>
-					<option>in progress</option>
+					<option selected>scadent</option>
+					<option>platit</option>
+					<option>neplatit</option>
 				</select>
 			</div>
 			<div class="btn-group">

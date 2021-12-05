@@ -54,8 +54,9 @@ Route::post('/cauta_tichet', [App\Http\Controllers\TichetController::class, 'sea
 Route::post('/store_tichete', [App\Http\Controllers\TichetController::class, 'store'])->name('store.tichete');
 Route::get('/tichet/{id}/edit', [App\Http\Controllers\TichetController::class, 'edit'])->name('edit_tichete');
 Route::post('/tichet/{id}/update', [App\Http\Controllers\TichetController::class, 'update'])->name('update_tichete');
-//Route::get('/delete_tichete/{id}',[App\Http\Controllers\TichetController::class,'destroy'])->name('delete_tichete');
-//Route::get('/tichet/{id}',[App\Http\Controllers\TichetController::class,'show'])->name('tichet.show');
+
+
+Route::post('/filter_tichete', [App\Http\Controllers\TichetController::class, 'filter'])->name('filter_tichete');
 
 
 //servicii
@@ -72,6 +73,7 @@ Route::get('/cauta_factura/{status}', [App\Http\Controllers\FacturaController::c
 Route::post('/store_factura', [App\Http\Controllers\FacturaController::class, 'store'])->name('store.factura');
 Route::get('/factura/{id}/edit', [App\Http\Controllers\FacturaController::class, 'edit'])->name('edit_factura');
 Route::post('/factura/{id}/update', [App\Http\Controllers\FacturaController::class, 'update'])->name('update_factura');
+Route::get('/factura/{status}/filter', [App\Http\Controllers\FacturaController::class, 'show'])->name('filter_factura');
 
 
 //departament

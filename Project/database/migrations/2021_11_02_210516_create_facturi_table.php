@@ -21,7 +21,7 @@ class CreateFacturiTable extends Migration
             $table->unsignedBigInteger('id_serviciu');
             $table->foreign('id_serviciu')->references('id')->on('servicii');
             $table->integer('pret');
-            $table->enum('status', ['done', 'in progress', 'new']);
+            $table->enum('status', ['scadent', 'platit', 'neplatit']);
             $table->timestamps();
         });
     }

@@ -21,9 +21,9 @@
                         </button>
 
                         <div id="list" class="dropdown-menu">
-                            <a class="dropdown-item">Done</a>
-                            <a class="dropdown-item">New</a>
-                            <a class="dropdown-item">In Progress</a>
+                            <a href="{{route('filter_factura',['status'=>'scadent'])}}" class="dropdown-item"> scadent</a>
+                            <a href="{{route('filter_factura',['status'=>'platit'])}}" class="dropdown-item">platit</a>
+                            <a href="{{route('filter_factura',['status'=>'neplatit'])}}" class="dropdown-item">neplatit</a>
                         </div>
                     </div>
                     <a href="{{route('add_factura')}}" class="a bcolor">Adaugare</a>

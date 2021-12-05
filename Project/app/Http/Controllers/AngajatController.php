@@ -92,7 +92,7 @@ public function search(Request $request){
         $angajat->id_departament = $request->id_departament;
         $angajat->save();
  
-        return view('adaugare_angajat');
+        return redirect()->route('angajat');
     }
 
     /**
