@@ -1,7 +1,6 @@
 body {
     font-family: "Poppins", sans-serif;
 }
-
 .web_site {
     display: flex;
 }
@@ -14,9 +13,6 @@ body {
     font-size: xxx-large;
     font-weight: 900;
 }
-
-
-
 
 .navbar-brand{
     cursor: pointer;
@@ -175,8 +171,6 @@ td {
 label {
     color: #676a6c;
     font-size: 14px;
-    display: block;
-    margin-top: 35px;
 }
 
 .input {

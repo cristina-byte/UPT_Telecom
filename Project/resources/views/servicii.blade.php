@@ -4,18 +4,12 @@
 <section class="web_site">
 	<div class="main_content_section">
 		<div class="row head ">
-			<div class="col-4 ">
+			<div class="col-4">
 				<h2 class="header_page">Servicii</h2>
+                <br>
+                <a href="{{route('add_serviciu')}}" class="a bcolor" style="margin-left: 32px">Adaugare</a>
+            </div>
 
-			</div>
-			<div class="col-3 pt-2">
-				<input type="text" class="search" placeholder="Cauta...">
-			</div>
-
-			<div class="col-5 pt-2">
-				<a href="{{route('add_serviciu')}}" class="a bcolor">Adaugare</a>
-				<a href="" class="b bordcolor">Avansat</a>
-			</div>
 		</div>
 
 		<div class="row ">

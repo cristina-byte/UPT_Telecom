@@ -18,9 +18,12 @@ class TichetController extends Controller
     public function index()
     {
         $tichete = Tichet::All();
- 
+        return view('tichete', ['tichete' => $tichete]);
+    }
 
-        
+    public function cauta_tichet($status)
+    {
+        $tichete=Tichet::select('*')->where('status',$status)->get();
         return view('tichete', ['tichete' => $tichete]);
     }
 
@@ -44,11 +47,8 @@ class TichetController extends Controller
      */
     public function store(StoreTichetRequest $request)
     {
-
-        
-
         $tichet = new Tichet;
- 
+
         $tichet->id_responsabil = $request->responsabil;
         $tichet->id_client = $request->client;
         $tichet->urgenta = $request->urgenta;
@@ -94,8 +94,6 @@ class TichetController extends Controller
      */
     public function update(StoreTichetRequest $request, $id)
     {
-
-        
         $tichet = Tichet::findOrFail($id);
         $tichet->id_responsabil = $request->responsabil;
         $tichet->id_client = $request->client;

@@ -1,10 +1,8 @@
 @extends('welcome')
 @section('content')
 
-<section class="web_site">
+    <section class="web_site">
 	<div class="main_content_section">
-
-
 		<form enctype="multipart/form-data" method="post" action="{{route('cauta_angajat')}}" class="row head ">
 			@csrf
 			<div class="col-3 pt-2">
@@ -17,9 +15,22 @@
 
 			<div class="col-5 pt-2">
 				<button type="submit" class="b bordcolor">Cauta</button>
-				<a href="" class="b bordcolor">Avansat</a>
+				<button onclick="showAdvanced()" type="button" class="b bordcolor">Avansat</button>
 				<a href="{{route('add_angajat')}}" class="a bcolor">Adaugare</a>
 			</div>
+
+            <div class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">
+                <br>
+                <p>Caută după:</p>
+                <input class="form-check-input" type="radio" name="cautare_avansata" id="id_angajat" value="id_angajat">
+                <label class="form-check-label" for="id_angajat">ID angajat</label>
+                <input class="form-check-input" type="radio" name="cautare_avansata" id="telefon" value="telefon">
+                <label class="form-check-label" for="telefon">Telefon</label>
+                <input class="form-check-input" type="radio" name="cautare_avansata" id="functie" value="functie">
+                <label class="form-check-label" for="functie">Functie</label>
+                <br>
+                <button type="submit" class="a bcolor" style="margin-top: 15px">Aplica</button>
+            </div>
 		</form>
 
 		<div class="row ">
@@ -35,11 +46,7 @@
 					<td class="h">Salariu</td>
 					<td class="h">Functie</td>
 					<td colspan="2" class="h">Actiuni</td>
-
-
-
 				</tr>
-
 
 				@foreach($angajati as $angajat)
 				<tr>
@@ -57,10 +64,19 @@
 				</tr>
 				@endforeach
 
-
-
 			</table>
 		</div>
 	</div>
 </section>
 @endsection
+
+<script>
+    function showAdvanced() {
+        var x = document.getElementById("cautare-avansata");
+        if (x.style.display === "none") {
+            x.style.display = "inline";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>

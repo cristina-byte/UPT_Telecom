@@ -50,6 +50,7 @@ Route::get('/delete_angajat/{id}', [App\Http\Controllers\AngajatController::clas
 
 //tichete
 Route::get('/add_tichet', [App\Http\Controllers\TichetController::class, 'create'])->name('add_tichet');
+Route::post('/cauta_tichet', [App\Http\Controllers\TichetController::class, 'search'])->name('cauta_tichet');
 Route::post('/store_tichete', [App\Http\Controllers\TichetController::class, 'store'])->name('store.tichete');
 Route::get('/tichet/{id}/edit', [App\Http\Controllers\TichetController::class, 'edit'])->name('edit_tichete');
 Route::post('/tichet/{id}/update', [App\Http\Controllers\TichetController::class, 'update'])->name('update_tichete');
