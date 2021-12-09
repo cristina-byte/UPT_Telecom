@@ -95,6 +95,19 @@ class TichetController extends Controller
         $tichet->data_raportare = $request->d_raportare;
         $tichet->save();
 
+
+        //se verifica statusul tichetului
+
+        if($tichet->status=="done"){
+            $angajat=Angajat::findOrFail($tichet->id_responsabil);
+            $angajat->salariu=$angajat->salariu+50;
+            $angajat->save();
+        }
+
+
+
+
+
         return redirect()->route("tichet");
     }
 
@@ -140,6 +153,13 @@ class TichetController extends Controller
         $tichet->descriere = $request->descriere;
         $tichet->data_raportare = $request->d_raportare;
         $tichet->save();
+
+         if($tichet->status=="done"){
+            $angajat=Angajat::findOrFail($tichet->id_responsabil);
+            $angajat->salariu=$angajat->salariu+50;
+            $angajat->save();
+        }
+
 
         return redirect()->route("tichet");
     }

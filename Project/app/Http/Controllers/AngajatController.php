@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Angajat;
+use App\Models\Tichet;
 use App\Models\Departament;
 use App\Http\Requests\StoreAngajatRequest;
 
@@ -154,6 +155,14 @@ public function search(Request $request){
     public function destroy($id)
     {
 
+        $tichete=Tichet::select('tichete.id')->where('id_responsabil',$id)->get();//selectarea tichetelor a caror id_responsabil este egal cu id-ul angajatului care trebuie sters
+
+        //parcurgere vectorul obtinut de obiecte si stergerea tichetelor dupa id-ul lor
+        foreach($tichete as $tichet){
+            Tichet::destroy($tichet->id);
+        }
+
+        //la final se sterge angajatul dupa ce au fost sterse tichetele
         Angajat::destroy($id);
 
         return redirect()->route('angajat');

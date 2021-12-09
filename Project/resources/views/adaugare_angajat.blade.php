@@ -31,7 +31,7 @@
                  	@foreach($departamente as $departament)
                  	<option>{{$departament->id}}</option>
                  	@endforeach
-                 </select>
+                 </select> <br><br>
 				
 				@error('id_departament')
                 <div class="alert alert-danger">{{ $message }}</div>
