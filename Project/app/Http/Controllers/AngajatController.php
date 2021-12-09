@@ -143,7 +143,7 @@ public function search(Request $request){
         $angajat->save();
 
 
-        return redirect()->route('editare_angajat');
+        return redirect()->route('angajat');
     }
 
     /**

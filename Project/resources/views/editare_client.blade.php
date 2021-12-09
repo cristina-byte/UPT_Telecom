@@ -13,14 +13,14 @@
 			@csrf
 			<div class="form-section">
 				<label>Nume</label>
-				<input class="form-control" name="nume" type="text"><br>
+				<input class="form-control" name="nume" value="{{$client->nume}}" type="text"><br>
 				@error('nume')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 			</div>
 			<div class="form-section">
 				<label>Prenume</label>
-				<input class="form-control" name="prenume" type="text"><br>
+				<input class="form-control" name="prenume" value="{{$client->prenume}}" type="text"><br>
 				@error('prenume')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -36,7 +36,7 @@
 			</div>
 			<div class="form-section">
 				<label>Email</label>
-				<input class="form-control" name="email" type="email"><br>
+				<input class="form-control" name="email" type="email" value="{{$client->email}}"  ><br>
 				@error('email')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -44,14 +44,14 @@
 
 			<div class="form-section">
 				<label>Telefon</label>
-				<input class="form-control" name="telefon" type="text"><br>
+				<input class="form-control" name="telefon" value="{{$client->telefon}}" type="text"><br>
 				@error('telefon')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 			</div>
 			<div class="form-section">
 				<label>Adresa</label>
-				<input class="form-control" name="adresa" type="text"><br>
+				<input class="form-control" name="adresa" value="{{$client->adresa}}" type="text"><br>
 				@error('adresa')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -59,7 +59,7 @@
 
 			<div class="form-section">
 				<label>Data incheiere contract</label>
-				<input class="form-control" name="start_date" type="text"><br>
+				<input class="form-control" name="start_date" value="{{$client->start_date}}" type="date"><br>
 				@error('start_date')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
@@ -67,7 +67,7 @@
 
 			<div class="form-section">
 				<label>Durata contract</label>
-				<input class="form-control" name="durata" type="text"><br>
+				<input class="form-control" name="durata" value="{{$client->durata_min}}" type="date"><br>
 				@error('durata')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

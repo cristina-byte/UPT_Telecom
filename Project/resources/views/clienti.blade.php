@@ -59,8 +59,8 @@
                             <td class="h">{{$client->id_serviciu}}</td>
                             <td class="h">{{$client->telefon}}</td>
                             <td class="h">{{$client->start_date}}</td>
-                            <td class="h"><a href="{{route('client.edit',['id'=>$client->id])}}">Edit</a></td>
-                            <td class="h"><a href="{{route('delete.client',['id'=>$client->id])}}">Delete</a></td>
+                            <td class="h"><a class="special_button1" href="{{route('client.edit',['id'=>$client->id])}}">Edit</a></td>
+                            
                         </tr>
                     @endforeach
 

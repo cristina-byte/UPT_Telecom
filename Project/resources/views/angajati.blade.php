@@ -10,7 +10,7 @@
 
 			</div>
 			<div class="col-4 pt-2">
-				<input type="text" class="search" placeholder="Cauta..." name="nume">
+				<input type="text" class="search" placeholder="Cauta..." value=" " name="nume">
 			</div>
 
 			<div class="col-5 pt-2">
@@ -59,8 +59,8 @@
 					<td class="h">{{$angajat->email}}</td>
 					<td class="h">{{$angajat->salariu}}</td>
 					<td class="h">{{$angajat->functie}}</td>
-					<td class="h"> <a href="{{route('edit_angajat',['id'=>$angajat->id])}}">Edit</a></td>
-					<td class="h"> <a href="{{route('delete.angajat',['id'=>$angajat->id])}}">Delete</a></td>
+					<td class="h"> <a class="special_button1" href="{{route('edit_angajat',['id'=>$angajat->id])}}">Edit</a></td>
+					<td class="h"> <a class="special_button2" href="{{route('delete.angajat',['id'=>$angajat->id])}}">Delete</a></td>
 				</tr>
 				@endforeach
 

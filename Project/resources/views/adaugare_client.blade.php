@@ -28,10 +28,16 @@
 			<div class="form-section">
 				<label>Pachet</label>
 				<select class="form-control" name="pachet">
-					<option selected>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
+
+					@foreach($servicii as $serviciu)
+					<option>{{$serviciu->tip}}</option>
+
+					@endforeach
+					
+
+
+
+
 				</select>
 			</div>
 			<div class="form-section">

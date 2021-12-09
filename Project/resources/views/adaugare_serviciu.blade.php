@@ -13,7 +13,14 @@
 			@csrf
 			<div class="form-section">
 				<label>Tip:</label>
-				<input class="form-control" name="tip" type="text"></input>
+				<select class="form-control" name="tip">
+
+					<option selected>pachet1</option>
+					<option>pachet2</option>
+					<option>pachet3</option>
+				</select>
+
+
 				@error('tip')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

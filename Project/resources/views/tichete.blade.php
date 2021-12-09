@@ -71,7 +71,7 @@
                             <td>{{$tichet->urgenta}}</td>
                             <td>{{$tichet->descriere}}</td>
                             <td>{{$tichet->created_at}}</td>
-                            <td><a href="{{route('edit_tichete',['id'=>$tichet->id])}}">Edit</a></td>
+                            <td><a class="special_button1" href="{{route('edit_tichete',['id'=>$tichet->id])}}">Edit</a></td>
 
                         </tr>
                     @endforeach

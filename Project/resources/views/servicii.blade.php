@@ -32,8 +32,8 @@
 					<td>{{$serviciu->nivel}}</td>
 					<td>{{$serviciu->pret}}</td>
 					<td>{{$serviciu->descriere}}</td>
-					<td><a href="{{route('edit_serviciu',['id'=>$serviciu->id])}}">Edit</a></td>
-					<td><a href="{{route('delete_serviciu',['id'=>$serviciu->id])}}">Delete</a></td>
+					<td><a class="special_button1" href="{{route('edit_serviciu',['id'=>$serviciu->id])}}">Edit</a></td>
+					
 				</tr>
 				@endforeach
 			</table>

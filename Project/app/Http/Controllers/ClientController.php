@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Client;
+use App\Models\Serviciu;
+
 use App\Http\Requests\StoreClientRequest;
 
 class ClientController extends Controller
@@ -47,7 +49,8 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('adaugare_client');
+        $servicii=Serviciu::All();
+        return view('adaugare_client',['servicii'=>$servicii]);
     }
 
     /**
@@ -66,7 +69,9 @@ class ClientController extends Controller
 
         $client->nume = $request->nume;
         $client->prenume = $request->prenume;
-        $client->id_serviciu = $request->pachet;
+
+        $serviciu=Serviciu::select('servicii.id')->where('tip',$request->pachet)->get();
+        $client->id_serviciu = $serviciu[0]->id;
         $client->email = $request->email;
         $client->adresa = $request->adresa;
         $client->telefon = $request->telefon;
@@ -126,7 +131,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redirect()->route('clienti');
+        return redirect()->route('client');
     }
 
     /**
