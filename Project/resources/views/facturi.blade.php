@@ -23,6 +23,8 @@
                         </div>
                     </div>
                     <a href="{{route('add_factura')}}" class="a bcolor">Adaugare</a>
+                    <a class="a bcolor" href="{{route('createPDF/pdf')}}">Export to PDF</a>
+
                 </div>
             </div>
 

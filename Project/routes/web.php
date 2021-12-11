@@ -75,6 +75,8 @@ Route::get('/factura/{id}/edit', [App\Http\Controllers\FacturaController::class,
 Route::post('/factura/{id}/update', [App\Http\Controllers\FacturaController::class, 'update'])->name('update_factura');
 Route::get('/factura/{status}/filter', [App\Http\Controllers\FacturaController::class, 'show'])->name('filter_factura');
 
+Route::get('/createPDF/pdf', [App\Http\Controllers\FacturaController::class, 'createPDF'])->name('createPDF/pdf');
+ 
 
 //departament
 Route::get('/add_departament', [App\Http\Controllers\DepartamentController::class, 'create'])->name('departament');

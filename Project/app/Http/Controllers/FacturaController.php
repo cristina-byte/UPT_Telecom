@@ -7,6 +7,7 @@ use App\Models\Factura;
 use App\Models\Serviciu;
 use App\Models\Client;
 use App\Http\Requests\StoreFacturaRequest;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class FacturaController extends Controller
 {
@@ -22,6 +23,19 @@ class FacturaController extends Controller
     }
 
 
+    // Generate PDF
+    public function createPDF() {
+        // retreive all records from db
+        $data = Factura::all();
+  
+        // share data to view
+        view()->share('facturi',$data);
+        $pdf = PDF::loadView('pdf_view', $data);
+  
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
+      }
+   
     public function cauta_factura($status)
     {
         
