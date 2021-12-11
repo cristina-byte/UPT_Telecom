@@ -8,6 +8,7 @@
 				<h2 class="header_page">Servicii</h2>
                 <br>
                 <a href="{{route('add_serviciu')}}" class="a bcolor" style="margin-left: 32px">Adaugare</a>
+                <a href="" class="a bcolor">Servicii de top</a>
             </div>
 
 		</div>
@@ -33,7 +34,7 @@
 					<td>{{$serviciu->pret}}</td>
 					<td>{{$serviciu->descriere}}</td>
 					<td><a class="special_button1" href="{{route('edit_serviciu',['id'=>$serviciu->id])}}">Edit</a></td>
-					
+
 				</tr>
 				@endforeach
 			</table>

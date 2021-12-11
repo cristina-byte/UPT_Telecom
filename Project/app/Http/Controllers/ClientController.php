@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\Serviciu;
 
 use App\Http\Requests\StoreClientRequest;
+use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
@@ -30,15 +31,15 @@ class ClientController extends Controller
        $this->validate($request,['nume'=>'required']);
 
       $clienti=Client::select('*')->where('nume',$request->nume)->get();
-      
 
-   
+
+
         return view('clienti', ['clienti' => $clienti]);
 
 
-   
 
-       
+
+
     }
 
 
@@ -63,7 +64,7 @@ class ClientController extends Controller
     {
 
 
-       
+
 
         $client = new Client;
 
@@ -117,7 +118,7 @@ class ClientController extends Controller
     {
 
 
-       
+
         $client = Client::findOrFail($id);
 
         $client->nume = $request->nume;
@@ -144,5 +145,11 @@ class ClientController extends Controller
     {
         Client::destroy($id);
         return redirect()->route('clienti');
+    }
+
+    public function neplatit()
+    {
+       $clienti = DB::select(DB::raw("SELECT * FROM facturi LEFT JOIN clienti on facturi.id_client = clienti.id WHERE facturi.status = 'neplatit'"));
+       dd($clienti);
     }
 }

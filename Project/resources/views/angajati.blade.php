@@ -17,20 +17,21 @@
 				<button type="submit" class="b bordcolor">Cauta</button>
 				<button onclick="showAdvanced()" type="button" class="b bordcolor">Avansat</button>
 				<a href="{{route('add_angajat')}}" class="a bcolor">Adaugare</a>
+				<a href="" class="a bcolor">Angajati cu tichete active</a>
 			</div>
 
             <div class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">
                 <br>
                 <p>Caută după:</p>
+                <input class="form-check-input" type="radio" name="cautare_avansata" id="nume" value="nume" checked>
+                <label class="form-check-label" for="id_angajat">Nume</label>
                 <input class="form-check-input" type="radio" name="cautare_avansata" id="id_angajat" value="id_angajat">
                 <label class="form-check-label" for="id_angajat">ID angajat</label>
                 <input class="form-check-input" type="radio" name="cautare_avansata" id="telefon" value="telefon">
                 <label class="form-check-label" for="telefon">Telefon</label>
                 <input class="form-check-input" type="radio" name="cautare_avansata" id="functie" value="functie">
                 <label class="form-check-label" for="functie">Functie</label>
-                <br>
-                <button type="submit" class="a bcolor" style="margin-top: 15px">Aplica</button>
-            </div>
+                </div>
 		</form>
 
 		<div class="row ">
