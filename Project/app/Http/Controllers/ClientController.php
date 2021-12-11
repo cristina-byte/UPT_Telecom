@@ -150,6 +150,9 @@ class ClientController extends Controller
     public function neplatit()
     {
        $clienti = DB::select(DB::raw("SELECT * FROM facturi LEFT JOIN clienti on facturi.id_client = clienti.id WHERE facturi.status = 'neplatit'"));
-       dd($clienti);
+      
+
+        return view('clienti',['clienti'=>$clienti]);
+
     }
 }
