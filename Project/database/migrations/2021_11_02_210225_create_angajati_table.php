@@ -21,7 +21,7 @@ class CreateAngajatiTable extends Migration
             $table->foreign('id_departament')->references('id')->on('departamente');
             $table->string('adresa', 40);
             $table->string('telefon');
-            $table->string('email', 20);
+            $table->string('email', 50);
             $table->integer('salariu');
             $table->string('functie', 20);
             $table->timestamps();

@@ -18,18 +18,20 @@
                     <button type="submit" href="{{route('cauta_client')}}" class="b bordcolor">Cauta</button>
                     <button onclick="showAdvanced()" type="button" class="b bordcolor">Avansat</button>
                     <a href="{{route('add_client')}}" class="a bcolor">Adaugare</a>
+                    <a href="{{route('neplatit_client')}}" class="a bcolor">Clienti cu facturi neplatite</a>
                 </div>
 
                 <div class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">
                     <br>
                     <p>Caută după:</p>
+                    <input class="form-check-input" type="radio" name="cautare_avansata" id="nume" value="nume" checked>
+                    <label class="form-check-label" for="id_angajat">Nume</label>
                     <input class="form-check-input" type="radio" name="cautare_avansata" id="id_client"
                            value="id_client">
                     <label class="form-check-label" for="id_angajat">ID client</label>
                     <input class="form-check-input" type="radio" name="cautare_avansata" id="telefon" value="telefon">
                     <label class="form-check-label" for="telefon">Telefon</label>
                     <br>
-                    <button type="submit" class="a bcolor" style="margin-top: 15px">Aplica</button>
                 </div>
             </form>
 
@@ -60,7 +62,7 @@
                             <td class="h">{{$client->telefon}}</td>
                             <td class="h">{{$client->start_date}}</td>
                             <td class="h"><a class="special_button1" href="{{route('client.edit',['id'=>$client->id])}}">Edit</a></td>
-                            
+
                         </tr>
                     @endforeach
 

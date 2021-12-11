@@ -37,6 +37,7 @@ Route::post('/store_client', [App\Http\Controllers\ClientController::class, 'sto
 Route::post('/client/{id}/update', [App\Http\Controllers\ClientController::class, 'update'])->name('client.update');
 Route::get('/client/{id}/edit', [App\Http\Controllers\ClientController::class, 'edit'])->name('client.edit');
 Route::get('/delete_client/{id}', [App\Http\Controllers\ClientController::class, 'destroy'])->name('delete.client');
+Route::get('/neplatit_client', [App\Http\Controllers\ClientController::class, 'neplatit'])->name('neplatit_client');
 
 //angajat
 Route::get('/add_angajat', [App\Http\Controllers\AngajatController::class, 'create'])->name('add_angajat');
