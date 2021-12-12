@@ -7,7 +7,7 @@ use App\Models\Angajat;
 use App\Models\Tichet;
 use App\Models\Departament;
 use App\Http\Requests\StoreAngajatRequest;
-
+use Illuminate\Support\Facades\DB;
 class AngajatController extends Controller
 {
     /**
@@ -27,7 +27,8 @@ class AngajatController extends Controller
                 'angajati' => $angajati
  
             ]
-        );
+        ); 
+         
     }
 
 
@@ -35,9 +36,7 @@ public function search(Request $request){
 
 
       $this->validate($request,['nume'=>'required']);
-
-      
-
+ 
        $departamente = Departament::All();
         $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
             ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')->where('angajati.nume',$request->nume)->get();
@@ -49,17 +48,8 @@ public function search(Request $request){
  
             ]
         );
-
-
-
-
+ 
 }
-
-
-
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -79,8 +69,6 @@ public function search(Request $request){
      */
     public function store(StoreAngajatRequest $request)
     {
-
-      
         $angajat = new Angajat;
 
         $angajat->nume = $request->nume;
@@ -120,6 +108,31 @@ public function search(Request $request){
         return view('editare_angajat', ['angajat' => $angajat,'departamente'=>$departamente]);
     }
 
+ 
+
+
+
+  
+        public function tichete_active()
+        {  
+            $tichete=Tichet::All();
+            $departamente = Departament::All();
+            $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
+                ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')
+                ->leftJoin('tichete', 'tichete.id_responsabil', 'angajati.id') ->where('tichete.status','!=','done') ->distinct()->get();
+     
+            return view(
+                'angajati',
+                [
+                    'angajati' => $angajati
+     
+                ]
+            ); 
+        }
+    
+   
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -129,8 +142,6 @@ public function search(Request $request){
      */
     public function update(StoreAngajatRequest $request, $id)
     {
-
-       
         $angajat = Angajat::findOrFail($id);
         $angajat->nume = $request->nume;
         $angajat->prenume = $request->prenume;
@@ -141,7 +152,6 @@ public function search(Request $request){
         $angajat->functie = $request->functie;
         $angajat->id_departament = $request->id_departament;
         $angajat->save();
-
 
         return redirect()->route('angajat');
     }
@@ -167,4 +177,7 @@ public function search(Request $request){
 
         return redirect()->route('angajat');
     }
+
+
+    
 }

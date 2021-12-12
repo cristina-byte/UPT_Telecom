@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <a href="{{route('add_factura')}}" class="a bcolor">Adaugare</a>
-                    <a class="a bcolor" href="{{route('createPDF/pdf')}}">Export to PDF</a>
+     
 
                 </div>
             </div>
@@ -51,7 +51,7 @@
                             <td class="h">{{$factura->pret}}</td>
                             <td class="h">{{$factura->status}}</td>
                             <td class="h"><a class="special_button1"href="{{route('edit_factura',['id'=>$factura->id])}}">Edit</a></td>
-                            <td class="h"><a class="special_button2" href="#">Print</a></td>
+                            <td class="h"><a class="special_button2" href="{{route('createPDF/pdf')}}">Print</a></td>
                         </tr>
 
                     @endforeach

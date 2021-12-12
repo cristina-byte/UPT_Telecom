@@ -37,12 +37,9 @@ class FacturaController extends Controller
       }
    
     public function cauta_factura($status)
-    {
-        
-
+    { 
         $facturi=Factura::select('*')->where('status',$status)->get();
-        return view('facturi', ['facturi' => $facturi]);
-        
+        return view('facturi', ['facturi' => $facturi]); 
     }
 
     /**

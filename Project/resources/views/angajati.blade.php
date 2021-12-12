@@ -17,7 +17,7 @@
 				<button type="submit" class="b bordcolor">Cauta</button>
 				<button onclick="showAdvanced()" type="button" class="b bordcolor">Avansat</button>
 				<a href="{{route('add_angajat')}}" class="a bcolor">Adaugare</a>
-				<a href="" class="a bcolor">Angajati cu tichete active</a>
+				<a href="{{route('tichete_active')}}" class="a bcolor">Angajati cu tichete active</a>
 			</div>
 
             <div class="col-4" id="cautare-avansata" style="display: none; margin-left: 32px">

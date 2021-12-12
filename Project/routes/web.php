@@ -46,7 +46,7 @@ Route::post('/store_angajat', [App\Http\Controllers\AngajatController::class, 's
 Route::get('/angajat/{id}/edit', [App\Http\Controllers\AngajatController::class, 'edit'])->name('edit_angajat');
 Route::post('/angajat{id}/update', [App\Http\Controllers\AngajatController::class, 'update'])->name('update.angajat');
 Route::get('/delete_angajat/{id}', [App\Http\Controllers\AngajatController::class, 'destroy'])->name('delete.angajat');
-
+Route::get('/tichete_active', [App\Http\Controllers\AngajatController::class, 'tichete_active'])->name('tichete_active');
 
 
 //tichete
