@@ -108,10 +108,6 @@ public function search(Request $request){
         return view('editare_angajat', ['angajat' => $angajat,'departamente'=>$departamente]);
     }
 
- 
-
-
-
   
         public function tichete_active()
         {  
