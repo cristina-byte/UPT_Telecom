@@ -36,17 +36,12 @@ class ServiciuController extends Controller
 public function top()
     {
         
+    
+$serviciu=DB::select(DB::raw("SELECT  id_serviciu from (SELECT Count(*) as tot, clienti.id_serviciu from clienti  LEFT JOIN servicii ON clienti.id_serviciu=servicii.id GROUP BY id_serviciu) as t1 where tot=(SELECT MAX(total) from (SELECT Count(*) as total from clienti   LEFT JOIN servicii ON clienti.id_serviciu=servicii.id GROUP BY id_serviciu) as tabel2);"));
+
+$servicii=Serviciu::select('*')->where('id',$serviciu[0]->id_serviciu)->get();
 
 
-        $serviciu=DB::select(DB::raw("SELECT MAX(total) as max, id_serviciu from (SELECT Count(*) as total, table1.id_serviciu from (SELECT  clienti.id_serviciu from clienti  LEFT JOIN servicii ON clienti.id_serviciu=servicii.id ) as table1 GROUP BY id_serviciu) as tabel2"));
-      
-
-      $max=$serviciu[0]->max;
-
-        $s=DB::select(DB::raw("SELECT COUNT(*) as total, id_serviciu from clienti GROUP BY id_serviciu  having total=$max"));
-       
-
-        $servicii=Serviciu::select('*')->where('id',$s[0]->id_serviciu)->get();
       
          return view('servicii', ['servicii' => $servicii]);
 
