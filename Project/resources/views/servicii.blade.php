@@ -8,7 +8,7 @@
 				<h2 class="header_page">Servicii</h2>
                 <br>
                 <a href="{{route('add_serviciu')}}" class="a bcolor" style="margin-left: 32px">Adaugare</a>
-                <a href="" class="a bcolor">Servicii de top</a>
+                <a href="{{route('top_servicii')}}" class="a bcolor">Servicii de top</a>
             </div>
 
 		</div>
