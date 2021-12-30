@@ -67,6 +67,8 @@ Route::get('/serviciu/{id}/edit', [App\Http\Controllers\ServiciuController::clas
 Route::post('/serviciu/{id}/update', [App\Http\Controllers\ServiciuController::class, 'update'])->name('update_serviciu');
 Route::get('/delete_serviciu/{id}', [App\Http\Controllers\ServiciuController::class, 'destroy'])->name('delete_serviciu');
 
+Route::get('/top_servicii', [App\Http\Controllers\ServiciuController::class, 'top'])->name('top_servicii');
+
 
 //factura
 Route::get('/add_factura', [App\Http\Controllers\FacturaController::class, 'create'])->name('add_factura');
