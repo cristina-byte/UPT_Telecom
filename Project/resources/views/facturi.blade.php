@@ -51,7 +51,7 @@
                             <td class="h">{{$factura->pret}}</td>
                             <td class="h">{{$factura->status}}</td>
                             <td class="h"><a class="special_button1"href="{{route('edit_factura',['id'=>$factura->id])}}">Edit</a></td>
-                            <td class="h"><a class="special_button2" href="{{route('createPDF/pdf')}}">Print</a></td>
+                            <td class="h"><a class="special_button2" href="{{route('downloadPDF')}}">Print</a></td>
                         </tr>
 
                     @endforeach

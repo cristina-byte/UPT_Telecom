@@ -76,7 +76,10 @@ Route::get('/factura/{id}/edit', [App\Http\Controllers\FacturaController::class,
 Route::post('/factura/{id}/update', [App\Http\Controllers\FacturaController::class, 'update'])->name('update_factura');
 Route::get('/factura/{status}/filter', [App\Http\Controllers\FacturaController::class, 'show'])->name('filter_factura');
 
-Route::get('/createPDF/pdf', [App\Http\Controllers\FacturaController::class, 'createPDF'])->name('createPDF/pdf');
+Route::get('/downloadPDF', [App\Http\Controllers\FacturaController::class, 'downloadPDF'])->name('downloadPDF');
+
+ //sRoute::get('/download-pdf', 'FacturaController@downloadPDF' );
+
  
 
 //departament
