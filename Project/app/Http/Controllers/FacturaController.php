@@ -28,9 +28,14 @@ class FacturaController extends Controller
 
 public function downloadPDF(){
     $facturi = Factura::all();
+<<<<<<< HEAD
     $pdf = PDF::loadView('facturi',compact('facturi'));
 
     return $pdf->download('factura.pdf');
+=======
+    $pdf = PDF::loadView('facturi', compact('facturi'));
+    return $pdf->download('down');
+>>>>>>> 6aab2b3a3d1910af6bc54655cbbe428d77ec91cb
 }
 
     public function cauta_factura($status)
