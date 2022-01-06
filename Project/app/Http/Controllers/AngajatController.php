@@ -34,20 +34,34 @@ class AngajatController extends Controller
 
 public function search(Request $request){
 
-
       $this->validate($request,['nume'=>'required']);
  
-       $departamente = Departament::All();
-        $angajati = Angajat::select('angajati.*', 'departamente.nume as departament')
-            ->leftJoin('departamente', 'departamente.id', 'angajati.id_departament')->where('angajati.nume',$request->nume)->get();
+    
+       if($request->cautare_avansata=='id_angajat')
+        $angajati=Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id','angajati.id_departament')->where('angajati.id',$request->nume)->get();
 
-            return view(
+       else if($request->cautare_avansata=='telefon')
+        $angajati=Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id','angajati.id_departament')->where('telefon',$request->nume)->get();
+       else if($request->cautare_avansata=='functie')
+         $angajati=Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id','angajati.id_departament')->where('functie',$request->nume)->get();
+       else if($request->cautare_avansata=='nume')
+        $angajati=Angajat::select('angajati.*', 'departamente.nume as departament')
+            ->leftJoin('departamente', 'departamente.id','angajati.id_departament')->where('angajati.nume',$request->nume)->get();
+
+
+        return view(
             'angajati',
             [
                 'angajati' => $angajati
  
             ]
         );
+
+
+
  
 }
     /**

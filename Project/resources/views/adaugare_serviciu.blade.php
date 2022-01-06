@@ -50,7 +50,7 @@
 			</div>
 
 			<div class="btn-group">
-				<input class="b bordcolor" type="reset" value="Anulare">
+				<a class="b bordcolor" href="{{route('serviciu')}}" type="reset" >Anulare</a>
 				<input class="a bcolor" type="submit" value="Trimite">
 			</div>
 

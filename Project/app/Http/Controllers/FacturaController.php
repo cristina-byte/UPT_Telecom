@@ -8,6 +8,7 @@ use App\Models\Serviciu;
 use App\Models\Client;
 use App\Http\Requests\StoreFacturaRequest;
 use PDF;
+
  
 
 class FacturaController extends Controller
@@ -23,24 +24,12 @@ class FacturaController extends Controller
         return view('facturi', ['facturi' => $facturi]);
     }
 
-/**
-    // Generate PDF
-    public function createPDF() {
-        // retreive all records from db
-        $data = Factura::all();
-  
-        // share data to view
-        view()->share('facturi',$data);
-        $pdf = PDF::loadView('pdf_view', $data);
-  
-        // download PDF file with download method
-        return $pdf->download('pdf_file.pdf');
-      }
-   */
+
 
 public function downloadPDF(){
     $facturi = Factura::all();
-    $pdf = PDF::loadView('facturi', compact('facturi'));
+    $pdf = PDF::loadView('facturi',compact('facturi'));
+
     return $pdf->download('factura.pdf');
 }
 

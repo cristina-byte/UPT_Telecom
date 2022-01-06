@@ -25,7 +25,7 @@
                     <br>
                     <p>Caută după:</p>
                     <input class="form-check-input" type="radio" name="cautare_avansata" id="nume" value="nume" checked>
-                    <label class="form-check-label" for="id_angajat">Nume</label>
+                    <label class="form-check-label" for="id_client">Nume</label>
                     <input class="form-check-input" type="radio" name="cautare_avansata" id="id_client"
                            value="id_client">
                     <label class="form-check-label" for="id_angajat">ID client</label>
@@ -61,7 +61,7 @@
                             <td class="h">{{$client->id_serviciu}}</td>
                             <td class="h">{{$client->telefon}}</td>
                             <td class="h">{{$client->start_date}}</td>
-                            <td class="h"><a class="special_button1" href="{{route('client.edit',['id'=>$client->id])}}">Edit</a></td>
+                            
 
                         </tr>
                     @endforeach

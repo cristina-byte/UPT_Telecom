@@ -51,21 +51,21 @@
 			<div class="form-section">
 				<label>Status</label>
 				<select class="form-control" name="status">
-					<option selected>new</option>
-					<option>in progres</option>
+					<option>new</option>
+					<option>in progress</option>
 					<option>done</option>
 				</select>
 			</div>
 			<div class="form-section">
 				<label>Urgenta</label>
 				<select class="form-control" name="urgenta">
-					<option selected>High</option>
+					<option>High</option>
 					<option>Medium</option>
 					<option>Low</option>
 				</select>
 			</div>
 			<div class="btn-group">
-				<input class="b bordcolor" type="reset" value="Anulare">
+				<a class="b bordcolor" href="{{route('tichet')}}" type="reset" >Anulare</a>
 				<input class="a bcolor" type="submit" value="Trimite">
 			</div>
 		</form>

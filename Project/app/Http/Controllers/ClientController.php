@@ -24,10 +24,28 @@ class ClientController extends Controller
     }
 
 
+
+
+/**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
     public function search(Request $request)
     {
         $this->validate($request, ['nume' => 'required']);
-        $clienti = Client::select('*')->where('nume', $request->nume)->get();
+
+
+        if($request->cautare_avansata=='id_client')
+        $clienti=Client::select('*')->where('id',$request->nume)->get();
+
+       else if($request->cautare_avansata=='telefon')
+        $clienti=Client::select('*')->where('telefon',$request->nume)->get();
+       
+       else if($request->cautare_avansata=='nume')
+        $clienti=Client::select('*')->where('nume',$request->nume)->get();
+
+
         return view('clienti', ['clienti' => $clienti]);
     }
 
